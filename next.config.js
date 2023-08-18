@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: { typedRoutes: true },
   images: {
-    domains: [],
+    domains: ['placehold.co'],
   },
 }
 
