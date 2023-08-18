@@ -3,7 +3,9 @@ import { Inter } from 'next/font/google'
 import Providers from '@components/Providers/Providers'
 import type { Metadata } from 'next'
 import type { PropsWithChildren } from 'react'
-import { ThemeSwitch } from '@components/ThemeSwitch/ThemeSwitch'
+import { Navigation } from '@features/Navigation/Navigation'
+import clsx from 'clsx'
+import { ParticlesBackground } from '@components/ParticlesBackground/ParticlesBackground'
 
 const metadata: Metadata = {
   title: {
@@ -21,12 +23,13 @@ const Layout = (props: PropsWithChildren) => {
   const { children } = props
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={clsx(inter.className, 'bg-slate-200 dark:bg-slate-800')}>
         <Providers>
-          <main>
-            <ThemeSwitch />
-            {children}
-          </main>
+          <ParticlesBackground />
+          <div className="bg-slate-200 text-slate-800 transition-colors duration-500  dark:bg-slate-800 dark:text-slate-200">
+            <Navigation />
+            <main className="relative z-10 ">{children}</main>
+          </div>
         </Providers>
       </body>
     </html>
