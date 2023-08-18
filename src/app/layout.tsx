@@ -23,7 +23,12 @@ const Layout = (props: PropsWithChildren) => {
   const { children } = props
   return (
     <html lang="en">
-      <body className={clsx(inter.className, 'bg-slate-200 dark:bg-slate-800')}>
+      <body
+        className={clsx(
+          inter.className,
+          'scroll-smooth bg-slate-200 dark:bg-slate-800'
+        )}
+      >
         <Providers>
           <ParticlesBackground />
           <div className="bg-slate-200 text-slate-800 transition-colors duration-500  dark:bg-slate-800 dark:text-slate-200">

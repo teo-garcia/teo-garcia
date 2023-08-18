@@ -5,7 +5,7 @@ import Image from 'next/image'
 const props = {
   title: 'Hey!',
   description:
-    "I'm Mateo Garcia, a Senior Software Engineer based in Medellin, Colombia. With 7 years of experience, I specialize in creating seamless web experiences that blend design and functionality.",
+    "I'm Mateo Garcia, a Senior Software Engineer from Medellin, Colombia. With 7 years of experience, I craft web solutions that merge elegant design with flawless functionality.",
 }
 
 const WelcomeBanner = () => {
