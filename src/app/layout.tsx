@@ -26,12 +26,12 @@ const Layout = (props: PropsWithChildren) => {
       <body
         className={clsx(
           inter.className,
-          'scroll-smooth bg-slate-200 dark:bg-slate-800'
+          'scroll-smooth bg-slate-200 dark:bg-slate-900'
         )}
       >
         <Providers>
           <ParticlesBackground />
-          <div className="bg-slate-200 text-slate-800 transition-colors duration-500  dark:bg-slate-800 dark:text-slate-200">
+          <div className="bg-slate-200 text-slate-900 transition-colors duration-500  dark:bg-slate-900 dark:text-slate-200">
             <Navigation />
             <main className="relative z-10 ">{children}</main>
           </div>

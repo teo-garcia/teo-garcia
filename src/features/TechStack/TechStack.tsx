@@ -34,7 +34,7 @@ const techStack = [
   'Express',
   'Fastify',
   'Nest',
-  'MYSQL',
+  'MySQL',
   'Postgres',
   'MongoDB',
   'Docker',
@@ -68,10 +68,10 @@ const TechStackIconsMap: Record<string, IconType> = {
   nodejs: SiNodedotjs,
 }
 
-const TechStackBanner = () => {
+const TechStack = () => {
   return (
-    <section className="mx-auto flex w-11/12 flex-col md:w-9/12 lg:w-10/12 xl:w-9/12">
-      <h2 className="py-12 text-5xl font-bold lg:py-24 ">Techstack:</h2>
+    <section className="mx-auto flex w-11/12 flex-col gap-y-2 md:w-9/12 lg:w-10/12 lg:gap-y-8 xl:w-9/12">
+      <h2 className="py-12 text-5xl font-bold">Techstack:</h2>
 
       <ul className="mx-auto grid w-full grid-cols-2 items-center justify-center gap-y-12 md:grid-cols-3 md:gap-12 lg:grid-cols-4 xl:w-11/12 xl:grid-cols-5 xl:gap-16 ">
         {techStack.map((tool) => {
@@ -87,8 +87,11 @@ const TechStackBanner = () => {
           )
         })}
       </ul>
+      <h3 className="mx-auto mt-32 w-10/12 text-center text-6xl font-bold md:w-11/12 md:text-6xl lg:text-8xl xl:text-7xl">
+        and the list goes on and on...
+      </h3>
     </section>
   )
 }
 
-export { TechStackBanner }
+export { TechStack }

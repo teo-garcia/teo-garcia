@@ -24,7 +24,7 @@ const ThemeSwitch = () => {
 
   return (
     <button
-      className=" rounded-lg border border-slate-800 p-2  dark:border-slate-200"
+      className=" rounded-lg border border-slate-900 p-2  dark:border-slate-200"
       onClick={handleClick}
       aria-label={`Theme switcher, current mode: ${theme}`}
     >

@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import { TechStackBanner } from './TechStackBanner'
+import { TechStack } from './TechStack'
 
 describe('<TechStackBanner /> tests', () => {
   test('It should render', () => {
-    render(<TechStackBanner />)
+    render(<TechStack />)
     expect(1 + 1).toBe(2)
   })
 })
