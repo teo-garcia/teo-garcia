@@ -8,7 +8,7 @@ const props = {
     "I'm Mateo Garcia, a Senior Software Engineer from Medellin, Colombia. With 7 years of experience, I craft web solutions that merge elegant design with flawless functionality.",
 }
 
-const WelcomeBanner = () => {
+const Welcome = () => {
   const { title, description } = props
   return (
     <section className="mx-auto flex h-full w-11/12 flex-col items-center  gap-y-12  md:w-9/12 lg:w-10/12 lg:flex-row-reverse lg:justify-between xl:w-9/12">
@@ -23,6 +23,7 @@ const WelcomeBanner = () => {
       <div className="flex flex-col items-center gap-y-8 lg:w-6/12 lg:items-start lg:gap-y-6 xl:gap-y-12">
         <h1 className="text-center text-8xl font-bold md:text-9xl xl:w-auto">
           {title}
+          {/* <span className="text-blue-400">!</span> */}
         </h1>
         <p className="text-center text-lg md:text-2xl  lg:text-left lg:text-2xl">
           {description}
@@ -32,4 +33,4 @@ const WelcomeBanner = () => {
   )
 }
 
-export { WelcomeBanner }
+export { Welcome }

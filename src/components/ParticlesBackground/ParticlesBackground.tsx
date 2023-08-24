@@ -16,8 +16,8 @@ const particlesOptions: RecursivePartial<IOptions> = {
         value: '#94a3b8',
       },
       distance: 150,
-      width: 1.5,
-      opacity: 0.25,
+      width: 5,
+      opacity: 0.2,
     },
     move: {
       speed: 1.5,
