@@ -24,14 +24,14 @@ const ThemeSwitch = () => {
 
   return (
     <button
-      className="fixed right-4 top-4 rounded-lg border border-black p-2 dark:border-white md:right-8 md:top-8"
+      className="rounded-lg border border-black p-2 dark:border-white md:right-8 md:top-8"
       onClick={handleClick}
       aria-label={`Theme switcher, current mode: ${theme}`}
     >
       {theme === 'light' ? (
-        <FaMoon className="h-7 w-7 text-black" />
+        <FaMoon className="size-7 text-black" />
       ) : (
-        <FaSun className="h-7 w-7 text-white" />
+        <FaSun className="size-7 text-white" />
       )}
     </button>
   )

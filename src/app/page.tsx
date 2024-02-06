@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { TechStack } from '@features/TechStack/TechStack'
-import { Welcome } from '@features/Welcome/Welcome'
-import { JobsExperience } from '@features/JobsExperience/JobsExperience'
+import { JobsExperience } from 'features/JobsExperience/JobsExperience'
+import { TechStack } from 'features/TechStack/TechStack'
+import { Welcome } from 'features/Welcome/Welcome'
 
 const metadata: Metadata = {
   title: 'Home | MG',
@@ -9,7 +9,7 @@ const metadata: Metadata = {
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col gap-y-12 pb-12 pt-4 lg:gap-y-24 lg:py-24">
+    <div className="relative z-10 flex flex-col gap-y-24 pb-12 pt-4 lg:gap-y-24 lg:py-24">
       <Welcome />
       <TechStack />
       <JobsExperience />

@@ -71,9 +71,9 @@ const TechStackIconsMap: Record<string, IconType> = {
 const TechStack = () => {
   return (
     <section className="mx-auto flex w-11/12 flex-col gap-y-2 md:w-9/12 lg:w-10/12 lg:gap-y-8 xl:w-9/12">
-      <h2 className="py-12 text-5xl font-bold">Techstack:</h2>
+      <h2 className="pb-12 text-5xl font-bold xl:text-6xl">Techstack:</h2>
 
-      <ul className="mx-auto grid w-full grid-cols-2 items-center justify-center gap-y-12 md:grid-cols-3 md:gap-12 lg:grid-cols-4 xl:w-11/12 xl:grid-cols-5 xl:gap-16 ">
+      <ul className="mx-auto grid w-11/12 grid-cols-2 items-center justify-center gap-y-14 md:w-full md:grid-cols-3 md:gap-12 lg:grid-cols-4 xl:w-11/12 xl:grid-cols-5 xl:gap-16 ">
         {techStack.map((tool) => {
           const Icon = TechStackIconsMap[tool.toLowerCase()]
           return (
@@ -81,13 +81,13 @@ const TechStack = () => {
               className="flex flex-col items-center justify-center gap-y-4 lg:gap-8"
               key={tool}
             >
-              <Icon className="h-24 w-24" />
+              <Icon className="size-20" />
               <h3 className="text-center text-3xl font-bold">{tool}</h3>
             </li>
           )
         })}
       </ul>
-      <h3 className="mx-auto mt-32 w-10/12 text-center text-6xl font-bold md:w-11/12 md:text-6xl lg:text-8xl xl:text-7xl">
+      <h3 className="mx-auto mt-16 text-center text-5xl font-bold md:w-11/12 md:text-6xl lg:text-7xl xl:text-8xl">
         and the list goes on and on...
       </h3>
     </section>

@@ -15,15 +15,14 @@ const Welcome = () => {
       <div className="relative h-[360px] w-[320px] lg:h-96 lg:w-80 xl:h-[500px] xl:w-[450px] ">
         <Image
           alt=""
-          src="https://placehold.co/450x500/94a3b8/f8fafc/png?text=Profile\nPic"
+          src="https://placehold.co/450x500/ffffff/000000/png?text=Profile\nPic"
           fill
-          className="rounded-lg shadow-lg shadow-slate-300 dark:shadow-slate-500"
+          className="rounded-lg"
         />
       </div>
       <div className="flex flex-col items-center gap-y-8 lg:w-6/12 lg:items-start lg:gap-y-6 xl:gap-y-12">
         <h1 className="text-center text-8xl font-bold md:text-9xl xl:w-auto">
           {title}
-          {/* <span className="text-blue-400">!</span> */}
         </h1>
         <p className="text-center text-lg md:text-2xl  lg:text-left lg:text-2xl">
           {description}

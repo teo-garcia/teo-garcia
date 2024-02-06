@@ -47,7 +47,7 @@ const ParticlesBackground = () => {
 
   return (
     <Particles
-      className="pointer-events-none fixed h-full w-full"
+      className="pointer-events-none fixed size-full"
       id="tsparticles"
       options={particlesOptions}
       init={particlesInit}
