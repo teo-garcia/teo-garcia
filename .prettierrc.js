@@ -1,6 +1,5 @@
-module.exports = {
-  trailingComma: 'es5',
-  tabWidth: 2,
-  semi: false,
-  singleQuote: true,
+import shared from '@teo-garcia/prettier-config-shared'
+
+export default {
+  ...shared,
 }

@@ -1,25 +1,10 @@
 {
+  "extends": "@teo-garcia/tsconfig-shared/next",
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": "./src",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "es5",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "paths": {
+      "@/*": ["./app/*"]
+    },
+    "types": ["@vitest/browser/context"]
   },
   "include": [
     "next-env.d.ts",
@@ -27,6 +12,5 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "./jest.setup.js"
-  ],
-  "exclude": ["node_modules"]
+  ]
 }
