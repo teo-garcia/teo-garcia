@@ -89,6 +89,17 @@ pnpm dev
 | CI                 | GitHub Actions for lint, typecheck, test, and build |
 | Delivery           | Vercel deployment workflow                          |
 
+## Security Headers
+
+`src/middleware.ts` applies the governed header baseline when the app runs in
+server mode. `vercel.json` applies the same deployment-owned baseline to static
+assets and static output: Content Security Policy, Cross-Origin-Opener-Policy,
+Permissions-Policy, Referrer-Policy, X-Content-Type-Options, and
+X-Frame-Options.
+
+HSTS is intentionally deployment-owned because TLS termination and domain
+preload policy belong to the hosting layer.
+
 ---
 
 ## Shared Configs
