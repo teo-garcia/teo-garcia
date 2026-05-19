@@ -23,11 +23,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider
-        attribute='class'
-        defaultTheme='system'
-        disableTransitionOnChange
-      >
+      <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
         {children}
         <ThemeSwitch />
         <ReactQueryDevtools buttonPosition='bottom-left' />
