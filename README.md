@@ -79,6 +79,18 @@ pnpm dev
 
 ---
 
+## Route States
+
+Astro page conventions own route-state wiring:
+
+| File                                     | Purpose               |
+| ---------------------------------------- | --------------------- |
+| `src/pages/404.astro`                    | Unmatched route UI    |
+| `src/pages/500.astro`                    | Static error fallback |
+| `src/components/route-state/route-state` | Shared local state UI |
+
+---
+
 ## Shared Governance
 
 | Area               | Tooling                                             |

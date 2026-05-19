@@ -1,0 +1,12 @@
+---
+import { RouteErrorState } from '~/components/route-state/route-state'
+import Base from '~/layouts/base.astro'
+import { siteMetadata } from '~/lib/seo'
+---
+
+<Base
+  title={`Application error | ${siteMetadata.shortName}`}
+  description={`The requested page failed to render in ${siteMetadata.name}.`}
+>
+  <RouteErrorState />
+</Base>

@@ -1,0 +1,12 @@
+---
+import { RouteNotFoundState } from '~/components/route-state/route-state'
+import Base from '~/layouts/base.astro'
+import { siteMetadata } from '~/lib/seo'
+---
+
+<Base
+  title={`Page not found | ${siteMetadata.shortName}`}
+  description={`The requested page could not be found in ${siteMetadata.name}.`}
+>
+  <RouteNotFoundState />
+</Base>
