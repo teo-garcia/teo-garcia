@@ -9,7 +9,14 @@ const shouldAnalyze = process.env.ANALYZE === 'true'
 
 export default defineConfig({
   site: process.env.PUBLIC_SITE_URL ?? 'http://localhost:4321',
-  integrations: [react(), sitemap()],
+  integrations: [
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
+    sitemap(),
+  ],
   adapter: isVercel ? vercel() : undefined,
   output: isVercel ? 'server' : 'static',
   server: {
