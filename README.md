@@ -1,5 +1,5 @@
 # Hey,
 
-Software Engineer from Medellín, Colombia, passionate about crafting web applications that (ideally) don’t crash and burn. I thrive on turning complex ideas into streamlined code, whether it’s creating intuitive frontends or fine-tuning backends. 
+Senior software engineer from Medellin, Colombia. Building production web software since 2015 across the full stack, across changing requirements, and across the usual gap between what was requested and what was actually needed. I like hard problems, but I like clear thinking more. The best systems usually start with fewer assumptions, better questions, and code that does not punish the next person.
 
-I keep up with the latest frameworks and tools, not just because it’s fun, but because this industry never sits still. My philosophy? Write clean, maintainable code so debugging feels less like archaeology.
+Diving deep into agentic tooling, I focus on the layer where context, orchestration, and model behavior become real engineering leverage. Prompting is only the surface. The harder work is shaping workflows, chaining tools, tightening feedback loops, and turning frontier models into collaborators that can handle serious production-grade problems.
