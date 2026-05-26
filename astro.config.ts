@@ -8,6 +8,9 @@ const isVercel = process.env.VERCEL === '1'
 const shouldAnalyze = process.env.ANALYZE === 'true'
 
 export default defineConfig({
+  devToolbar: {
+    enabled: false,
+  },
   site: process.env.PUBLIC_SITE_URL ?? 'http://localhost:4321',
   integrations: [
     react({
