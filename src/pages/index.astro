@@ -1,0 +1,12 @@
+---
+import Base from '~/layouts/base.astro'
+import HomePage from '~/components/home-page'
+import { siteMetadata } from '~/lib/seo'
+---
+
+<Base
+  title={`Home | ${siteMetadata.shortName}`}
+  description={siteMetadata.description}
+>
+  <HomePage client:load />
+</Base>

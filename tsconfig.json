@@ -1,16 +1,22 @@
 {
-  "extends": "@teo-garcia/tsconfig-shared/next",
+  "extends": "@teo-garcia/tsconfig-shared/vite-react",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/*"]
+      "~/*": ["./src/*"]
     },
-    "types": ["@vitest/browser/context"]
+    "jsxImportSource": "react",
+    "types": ["vite/client", "vitest/globals", "@vitest/browser-playwright"]
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "./jest.setup.js"
+    "src/**/*.astro",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/env.d.ts",
+    "astro.config.ts",
+    "playwright.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "e2e/**/*.ts"
   ]
 }
