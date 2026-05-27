@@ -18,33 +18,35 @@
 }
 
 :root {
-  --background: #fbfcfb;
-  --foreground: #111413;
-  --primary: #111413;
-  --primary-foreground: #fbfcfb;
-  --secondary: #eef3f1;
-  --secondary-foreground: #111413;
-  --muted: #f3f6f5;
-  --muted-foreground: #66706c;
-  --accent: #14b8a6;
-  --accent-foreground: #04110d;
-  --border: #dce4e1;
-  --ring: #14b8a6;
+  --background: #f7f6f1;
+  --paper: #ffffff;
+  --foreground: #11110f;
+  --primary: #11110f;
+  --primary-foreground: #f7f6f1;
+  --secondary: #ece9df;
+  --secondary-foreground: #11110f;
+  --muted: #ebe8df;
+  --muted-foreground: #555650;
+  --accent: #3f7563;
+  --accent-foreground: #07120f;
+  --border: rgb(17 17 15 / 18%);
+  --ring: #82b6a4;
 }
 
 .dark {
-  --background: #070908;
-  --foreground: #f3f7f4;
-  --primary: #f3f7f4;
-  --primary-foreground: #070908;
-  --secondary: #101412;
-  --secondary-foreground: #f3f7f4;
-  --muted: #111614;
-  --muted-foreground: #a7b0ac;
-  --accent: #2dd4bf;
-  --accent-foreground: #04110d;
-  --border: #202a26;
-  --ring: #2dd4bf;
+  --background: #090908;
+  --paper: #11110f;
+  --foreground: #f5f2ea;
+  --primary: #f5f2ea;
+  --primary-foreground: #090908;
+  --secondary: #161613;
+  --secondary-foreground: #f5f2ea;
+  --muted: #171712;
+  --muted-foreground: #aaa69b;
+  --accent: #a6cfc0;
+  --accent-foreground: #08100d;
+  --border: rgb(245 242 234 / 18%);
+  --ring: #a6cfc0;
   color-scheme: dark;
 }
 
@@ -58,16 +60,15 @@
     min-width: 320px;
     margin: 0;
     overflow-x: hidden;
-    background:
-      radial-gradient(
-        circle at 50% -10%,
-        rgb(20 184 166 / 10%),
-        transparent 28rem
-      ),
-      var(--background);
+    background: var(--background);
     color: var(--foreground);
-    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-family: Inter, system-ui, sans-serif;
     text-rendering: optimizeLegibility;
+  }
+
+  .font-serif {
+    font-family:
+      Newsreader, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   }
 
   a {
@@ -76,8 +77,8 @@
   }
 
   ::selection {
-    background: #14b8a6;
-    color: #04110d;
+    background: #a6cfc0;
+    color: #08100d;
   }
 }
 

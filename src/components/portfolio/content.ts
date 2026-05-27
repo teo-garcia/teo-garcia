@@ -1,7 +1,12 @@
 export const hero = {
-  eyebrow: 'Mateo Garcia',
-  title: 'I build web software, mostly by making the problem less blurry.',
-  body: 'I am a senior software engineer from Medellin. I like hard problems, but I like clear thinking more. The stack matters after the problem has a shape.',
+  eyebrow: 'Mateo Garcia / Senior Software Engineer',
+  title: 'Calm software for messy places.',
+  body: 'I work across the stack, but the useful part is quieter: understand the constraint, name what is really happening, and build the piece people can trust in production.',
+  ledger: [
+    'Identity and access work for teams that cannot afford confusion.',
+    'Legacy CMS and product behavior turned into cleaner flows.',
+    'Campaign systems, launches, and tooling shipped under real pressure.',
+  ],
   links: [
     {
       href: 'mailto:juanmateogarcia96@gmail.com',
@@ -14,54 +19,103 @@ export const hero = {
   ],
 } as const
 
+export const about = [
+  'I like the part where the brief is still a little rough. Someone knows the system hurts, but the reason is spread across code, process, old decisions, and a few things nobody has written down.',
+  'That is where I am useful: slow down enough to see the shape, then build with enough care that the next person does not have to guess.',
+] as const
+
+export const chapters = ['Start', 'Shape', 'Work', 'Tools', 'Note'] as const
+
 export const work = [
   {
     company: 'Gorilla Logic / AdCellerant',
     dates: 'Sep 2024 - Present',
+    proof: [
+      'Identity and role-based access for a growing user base',
+      'Federated GraphQL services across independently deployable backends',
+      'Campaign setup, reporting, and client presentation workflows',
+    ],
     summary:
-      'Working on a digital marketing platform where agencies configure campaigns through orders, line items, products, reports, and client-facing material. I have been deep in auth, role-based access, identity workflows, federated GraphQL services, and full-stack product work around campaign setup.',
-    title: 'AdCellerant',
+      'Orders, line items, products, reports, identity, permissions, and client-facing material. The useful move is making access and campaign setup feel obvious.',
+    title: 'Campaign systems with identity at the center',
   },
   {
     company: 'Gorilla Logic / Evolve',
     dates: 'Apr 2022 - Sep 2024',
+    proof: [
+      'Image loading and content delivery work for a visual product surface',
+      'Reverse-engineered undocumented WordPress behavior into reliable flows',
+      'Led Salesforce integration work and owned tech-lead decisions',
+    ],
     summary:
-      'Worked on a vacation rental platform with a heavy content surface, property search, booking flows, and a legacy WordPress CMS that did not come with a useful map. I worked on image performance, CMS behavior, Salesforce integration, releases, and tech-lead decisions.',
-    title: 'Evolve',
-  },
-  {
-    company: 'Huge / Stellantis',
-    dates: 'Jun 2020 - Nov 2021',
-    summary:
-      'Built high-volume digital campaign assets for automotive brands. The work was repetitive until it was treated as a system: dynamic data, Preact in the banner workflow, and automation to reduce manual production.',
-    title: 'Stellantis',
+      'Property search, booking surfaces, image-heavy pages, a legacy WordPress CMS, Salesforce consistency, and release choices that had to hold.',
+    title: 'Travel product work under legacy constraints',
   },
   {
     company: 'Matter Supply / Netflix',
     dates: 'Nov 2021 - Apr 2022',
+    proof: [
+      'Two multilingual promotional sites for film and documentary launches',
+      'Six-language delivery across Colombia and US collaborators',
+      'Scope, handoff, and release discipline under tight timelines',
+    ],
     summary:
-      'Built two multilingual promotional sites for Netflix productions under tight deadlines. The work was not about clever architecture; it was about clear handoffs, realistic scope, and shipping without drama.',
-    title: 'Netflix promotional sites',
+      'Two multilingual launches, six languages, distributed collaborators, and a deadline that rewarded clear decisions more than clever ones.',
+    title: 'Launch work without theatrics',
   },
-]
+  {
+    company: 'Huge / Stellantis',
+    dates: 'Jun 2020 - Nov 2021',
+    proof: [
+      'Preact introduced as a lightweight rendering path for banner workflows',
+      'Dynamic campaign assets generated from data inputs at volume',
+      'Automation reduced repetitive manual production work',
+    ],
+    summary:
+      'A repetitive banner workflow became a production system: Preact, dynamic data, and automation replacing manual drag.',
+    title: 'Turning campaign production into tooling',
+  },
+  {
+    company: 'Globant / Pragma',
+    dates: 'May 2019 - Jun 2020',
+    proof: [
+      'React SPAs inside Drupal constraints for Banco Santander',
+      'Promotional campaign apps with authenticated games and incentives',
+      'React training that helped move an internal team away from Angular.js',
+    ],
+    summary:
+      'Banking SPAs inside Drupal, campaign apps, authenticated games, and React training while the local team changed direction.',
+    title: 'Early systems, banking, and team lift',
+  },
+] as const
 
-export const tools = [
-  'TypeScript',
-  'React',
-  'Astro',
-  'Next.js',
-  'Node.js',
-  'NestJS',
-  'FastAPI',
-  'GraphQL',
-  'PostgreSQL',
-  'Redis',
-  'Docker',
-  'Cloudflare',
-  'AWS',
-  'Datadog',
-  'Playwright',
-  'Vitest',
-  'Tailwind CSS',
-  'GSAP',
-]
+export const toolGroups = [
+  {
+    label: 'Languages I reach for',
+    tools: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+  },
+  {
+    label: 'Interfaces and product surfaces',
+    tools: ['React', 'Next.js', 'Preact', 'React Native', 'Storybook'],
+  },
+  {
+    label: 'Services and queues',
+    tools: ['Node.js', 'NestJS', 'Express', 'FastAPI', 'BullMQ'],
+  },
+  {
+    label: 'Data and search',
+    tools: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch'],
+  },
+  {
+    label: 'APIs, identity, and access',
+    tools: ['REST', 'GraphQL', 'Apollo Federation', 'OAuth 2.0', 'FusionAuth'],
+  },
+  {
+    label: 'Shipping and observability',
+    tools: ['AWS', 'GCloud', 'Docker', 'Cloudflare', 'Datadog', 'Playwright'],
+  },
+  {
+    label: 'CMS, commerce, and integrations',
+    tools: ['WordPress', 'Strapi', 'Drupal', 'Salesforce', 'Stripe', 'Shopify'],
+  },
+] as const

@@ -2,7 +2,7 @@
 
 ## Current Iteration
 
-- Current iteration: `6` - minimal portfolio/blog-post reset.
+- Current iteration: `11` - soft editorial craft.
 - Latest dislikes:
   - The broken-brief collage looked bad.
   - The colors were wrong.
@@ -15,6 +15,26 @@
   - Placeholder blocks should be replaced with a serious nature background.
   - The background image was too hard to see after the first full-viewport pass.
   - Work needs dates and concrete descriptions.
+  - The next pass needs better blue variations, more human language, different
+    composition, different fonts, stronger motion, and a resume-grounded
+    toolset.
+  - The page should use full-viewport scrolling with a strong centered hero,
+    incredible animations, and different backgrounds/effects.
+  - The latest pass still looked like a SaaS site.
+  - The background did not feel new enough.
+  - The effects were not incredible.
+  - The desired direction is minimalist, writerly, beautiful, and full-viewport.
+  - The user chose Option A: cinematic case-study scroll.
+  - The page needs proper generated visuals, handcrafted style, and strong
+    storytelling animation.
+  - The latest iteration still does not feel good enough.
+  - The user wants cool, professional, chill language instead of stiff copy.
+  - Work experience should not be arranged as square grid cards.
+  - Hard blue should be removed.
+  - The next pass should be closer to the committed minimal journal, but more
+    beautiful.
+  - Colors should be soft black and white with cool accent combinations.
+  - Fonts, animations, and generated assets need a stronger craft pass.
 - Required changes:
   1. Use simpler, calmer visual language.
   2. Prefer beautiful white and dark variations with one strong accent.
@@ -28,6 +48,21 @@
   9. Keep the background image visible in both themes without hurting text
      contrast.
   10. Include a tools section.
+  11. Remove the hard-blue cinematic palette.
+  12. Use resume evidence for tools and experience language.
+  13. Improve composition and motion without returning to SaaS/dashboard
+      patterns.
+  14. Use full-viewport presence without forcing square-card or SaaS sections.
+  15. Make the hero strong, quiet, and first-screen dominant.
+  16. Try layered background/effect treatments without using graph motifs.
+  17. Remove card-like, badge-like, and dashboard-like composition.
+  18. Use writing, whitespace, ink, and typography as the main visual material.
+  19. Keep full-viewport scroll motion, but make it feel literary/minimal.
+  20. Use generated editorial imagery as a real project asset.
+  21. Keep work experience as a flowing editorial record, not grid cards.
+  22. Use softer black/white colors with sage/cyan accents.
+  23. Make motion feel handwritten/editorial: reveals, parallax, drawn line,
+      breath, and scroll markers.
 
 ## Product Direction
 
@@ -79,67 +114,68 @@ For each swipe, track:
 
 Do not combine multiple visual concepts without naming the reason.
 
-### Current Swipe: `minimal-journal`
+### Current Swipe: `soft-editorial-craft`
 
 Goal:
 
-- Minimal personal portfolio with blog-post rhythm.
-- Introduce Mateo first.
-- Narrow readable content column.
-- Beautiful light/dark modes.
-- One accent color.
-- No graph visuals.
-- No SaaS layout.
-- A real nature background image, theme-friendly and quiet.
-- The background should be visible enough to carry the page, not hidden behind a
-  heavy overlay.
+- Return closer to the committed minimal journal direction, but make it more
+  beautiful and crafted.
+- Use generated editorial imagery as the visual base, not hard-blue cinematic
+  atmosphere.
+- Keep resume facts in a flowing record, not square work cards.
+- Make the voice sound calm, human, professional, and a little more personal.
+- No graph visuals, fake dashboards, SaaS panels, cards, badges, or placeholder
+  media.
+- Make motion feel premium: text masks, image parallax, drawn line progress,
+  subtle breathing accent, section markers, and staggered evidence.
 
 Palette:
 
-- Light background: `#fbfcfb`
-- Light surface: `#ffffff`
-- Light text: `#111413`
-- Light muted: `#66706c`
-- Dark background: `#070908`
-- Dark surface: `#101412`
-- Dark text: `#f3f7f4`
-- Dark muted: `#a7b0ac`
-- Accent: `#14b8a6`
-- Border: neutral gray with low opacity.
+- Light background: `#f7f6f1`
+- Dark background: `#090908`
+- Light text: `#11110f`
+- Dark text: `#f5f2ea`
+- Light accent: `#3f7563`
+- Dark accent: `#a6cfc0`
+- Border: ink/paper with low opacity.
 
 Fonts:
 
-- Display: `Space Grotesk`
-- Body: `Instrument Sans`
+- Display: `Newsreader`
+- Body: `Inter`
 - Mono: system monospace only for small labels if needed.
 
 Visual motif:
 
-- Editorial whitespace.
-- Quiet dividers.
-- One serious mountain/forest image treated as a background.
-- Small typographic metadata.
-- No diagrams, graphs, fake dashboards, or product cards.
+- Strong editorial hero.
+- Long-form scroll with generous whitespace.
+- Generated abstract paper/graphite image:
+  `public/images/editorial-paper-field.png`.
+- Full-bleed image, paper overlay, thin drawn line, soft breathing accent.
+- Chapter markers and sparse evidence.
+- No diagrams, graphs, fake dashboards, product cards, boxed ledgers, or badges.
 
 Sections:
 
 1. Hero.
-2. About note.
-3. Selected work notes with dates.
-4. Tools used.
-5. Contact.
+2. Shape.
+3. Work.
+4. Tools.
+5. Note / contact.
 
 Language rules:
 
 - One strong hero idea.
-- Short supporting copy.
-- Work stories as compact evidence, not case studies.
+- Short supporting copy with more human phrasing.
+- Work stories as flowing evidence, not case-study cards.
+- Tool language must reflect actual resume categories.
 - No long timeline unless explicitly requested.
 
 Motion:
 
-- GSAP may animate entry and subtle section reveals.
-- Motion must be quiet and optional.
+- GSAP may animate hero masks, chapter reveals, generated visual parallax, drawn
+  lines, breathing accents, evidence reveals, and progress.
+- Motion should feel premium and editorial while preserving reduced-motion.
 - Use `prefers-reduced-motion`.
 - Keep all GSAP in `usePageMotion`.
 
@@ -152,7 +188,7 @@ Technical rules:
   styling.
 - Content lives in a nearby content module.
 - Avoid one-off CSS selectors for layout.
-- Keep generated visual assets out until the style is approved.
+- Use the generated visual as a project asset for this iteration.
 
 ## Component Plan
 
@@ -180,21 +216,24 @@ Responsibilities:
 
 ## Iteration Acceptance
 
-Iteration 6 is acceptable when:
+Iteration 11 is acceptable when:
 
 - The page no longer feels like SaaS.
-- The page reads like a minimal portfolio/blog post.
-- The width is constrained and readable.
-- The image placeholder is gone.
-- The hero uses a serious nature background.
+- The page feels closer to the committed minimal journal, but more beautiful.
+- The hero is strong, quiet, and first-screen dominant.
+- The composition avoids square work cards and dashboard-like grids.
+- Generated imagery is used as a real visual asset.
+- Cards, boxed ledgers, and badge-like tool chips are removed.
 - Work entries include dates and concrete descriptions.
-- Tools section exists.
-- White/dark theme is polished.
-- Accent color is restrained.
-- Fonts are clean and non-cursive.
-- Copy is shorter.
+- Tools section is grouped from resume categories.
+- White/dark theme is polished with soft black/white and cool accent colors.
+- Hard blue is removed.
+- Accent color is restrained but memorable.
+- Fonts are clean, editorial, and non-cursive.
+- Copy is shorter and more human.
 - Tailwind classes carry the layout/styling.
 - GSAP is abstracted out of the page.
+- Motion has a clear editorial craft pass and respects reduced-motion.
 - Desktop and mobile have no horizontal overflow.
 - `lint`, `typecheck`, `test`, and `build` pass.
 
@@ -255,3 +294,80 @@ Iteration 6 is acceptable when:
 - Decision: Tune
 - Notes: Preserve the minimal journal structure; only adjust background
   visibility and contrast.
+
+### Feedback Entry
+
+- Iteration: 7 - Requested blue craft iteration
+- Date: 2026-05-26
+- What I liked: Prior changes were ready to commit.
+- What I disliked: The next iteration needs stronger design taste, better blue
+  color variations, more human language, a different UI composition, different
+  fonts, more impressive motion, and a more solid resume-based toolset.
+- Required changes: Commit the existing slice first, then create a new
+  resume-grounded swipe with blue palette work, new typography, stronger
+  composition, refined copy, enhanced motion, and categorized tools.
+- Priority: High
+- Decision: Rework
+- Notes: This swipe is `blue-craft-ledger`.
+
+### Feedback Entry
+
+- Iteration: 8 - Full viewport cinematic request
+- Date: 2026-05-26
+- What I liked: The direction can continue from the blue resume-grounded work.
+- What I disliked: The page still needs a stronger full-viewport scroll concept,
+  a more centered hero, more impressive animations, and different background
+  effects.
+- Required changes: Move to viewport-sized sections, center the hero, create a
+  stronger animation system in `usePageMotion`, and try layered background
+  treatments while preserving resume-grounded content and avoiding graph/SaaS
+  motifs.
+- Priority: High
+- Decision: Rework
+- Notes: This swipe is `viewport-cinematic`.
+
+### Feedback Entry
+
+- Iteration: 9 - Minimalist writing scroll request
+- Date: 2026-05-26
+- What I liked: Full-viewport scrolling remains the desired structural
+  direction.
+- What I disliked: The latest pass still looked like SaaS, did not have a truly
+  new background, and did not have impressive enough effects.
+- Required changes: Strip SaaS-like panels/cards/badges, make the page feel like
+  someone writing from thought, use minimalist beauty, full-viewport sections,
+  and scroll-based typography/background motion.
+- Priority: High
+- Decision: Rework
+- Notes: This swipe is `written-from-the-head`.
+
+### Feedback Entry
+
+- Iteration: 10 - Cinematic case-study option
+- Date: 2026-05-26
+- What I liked: Option A was selected as the next direction.
+- What I disliked: Previous passes were not stylish or handcrafted enough and
+  lacked proper visuals and impressive storytelling animation.
+- Required changes: Use generated cinematic imagery, create a full-viewport
+  case-study scroll, avoid SaaS/card patterns, and make the motion feel premium.
+- Priority: High
+- Decision: Rework
+- Notes: This swipe is `cinematic-case-study`.
+
+### Feedback Entry
+
+- Iteration: 11 - Soft editorial craft
+- Date: 2026-05-26
+- What I liked: The committed minimal journal is closer than the later cinematic
+  passes.
+- What I disliked: The latest pass still is not good enough, the language is not
+  cool/professional/chill enough, work experience should not be square grid
+  cards, hard blue should be removed, and the page needs better colors, fonts,
+  animation craft, and generated asset usage.
+- Required changes: Return closer to the current commit, use soft black and
+  white with cool accents, write more human copy, make work a flowing editorial
+  record, use a generated paper/graphite visual, and improve scroll-based
+  motion.
+- Priority: High
+- Decision: Rework
+- Notes: This swipe is `soft-editorial-craft`.

@@ -10,13 +10,15 @@ test('HomePage renders portfolio content', () => {
 
   expect(
     screen.getByRole('heading', {
-      name: /making the problem less blurry/i,
+      name: /calm software for messy places/i,
     })
   ).toBeInTheDocument()
   expect(
-    screen.getByRole('heading', { name: 'AdCellerant' })
+    screen.getByRole('heading', {
+      name: 'Campaign systems with identity at the center',
+    })
   ).toBeInTheDocument()
-  expect(screen.getByText(/Tools I have used/i)).toBeInTheDocument()
+  expect(screen.getByText(/Apollo Federation/i)).toBeInTheDocument()
   expect(container.querySelector('[data-hero-motion]')).not.toBeNull()
 })
 
