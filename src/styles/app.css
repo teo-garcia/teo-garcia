@@ -62,13 +62,8 @@
     overflow-x: hidden;
     background: var(--background);
     color: var(--foreground);
-    font-family: Inter, system-ui, sans-serif;
+    font-family: 'Instrument Sans', Inter, system-ui, sans-serif;
     text-rendering: optimizeLegibility;
-  }
-
-  .font-serif {
-    font-family:
-      Newsreader, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   }
 
   a {

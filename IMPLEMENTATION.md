@@ -2,7 +2,7 @@
 
 ## Current Iteration
 
-- Current iteration: `11` - soft editorial craft.
+- Current iteration: `12` - pencil nature narrative.
 - Latest dislikes:
   - The broken-brief collage looked bad.
   - The colors were wrong.
@@ -35,6 +35,12 @@
     beautiful.
   - Colors should be soft black and white with cool accent combinations.
   - Fonts, animations, and generated assets need a stronger craft pass.
+  - The serif display font feels wrong.
+  - The large oversized titles are too much.
+  - Work experience and tools need a better vertical distribution.
+  - The copy should feel like Mateo speaking, not AI selling.
+  - Asset management should be cleaner and use multiple generated images.
+  - The preferred visual direction is nature backgrounds drawn in pencil.
 - Required changes:
   1. Use simpler, calmer visual language.
   2. Prefer beautiful white and dark variations with one strong accent.
@@ -63,6 +69,12 @@
   22. Use softer black/white colors with sage/cyan accents.
   23. Make motion feel handwritten/editorial: reveals, parallax, drawn line,
       breath, and scroll markers.
+  24. Remove serif typography.
+  25. Reduce title scale.
+  26. Use multiple pencil-drawn nature images from a managed portfolio asset
+      folder.
+  27. Make work and tools vertical, narrative, and less structured like a sales
+      page.
 
 ## Product Direction
 
@@ -114,20 +126,19 @@ For each swipe, track:
 
 Do not combine multiple visual concepts without naming the reason.
 
-### Current Swipe: `soft-editorial-craft`
+### Current Swipe: `pencil-nature-narrative`
 
 Goal:
 
-- Return closer to the committed minimal journal direction, but make it more
-  beautiful and crafted.
-- Use generated editorial imagery as the visual base, not hard-blue cinematic
-  atmosphere.
-- Keep resume facts in a flowing record, not square work cards.
-- Make the voice sound calm, human, professional, and a little more personal.
+- Keep the calmer committed direction, but remove the serif/oversized editorial
+  feel.
+- Use generated pencil-drawn nature imagery as the visual base.
+- Keep resume facts in a vertical story, not square work cards or a sales grid.
+- Make the voice sound like Mateo describing the work plainly.
 - No graph visuals, fake dashboards, SaaS panels, cards, badges, or placeholder
   media.
-- Make motion feel premium: text masks, image parallax, drawn line progress,
-  subtle breathing accent, section markers, and staggered evidence.
+- Make motion feel handmade: text masks, nature parallax, drawn line progress,
+  subtle breathing accent, section images, and staggered evidence.
 
 Palette:
 
@@ -141,17 +152,20 @@ Palette:
 
 Fonts:
 
-- Display: `Newsreader`
-- Body: `Inter`
+- Display/body: `Instrument Sans`
+- Fallback: `Inter`
 - Mono: system monospace only for small labels if needed.
 
 Visual motif:
 
 - Strong editorial hero.
 - Long-form scroll with generous whitespace.
-- Generated abstract paper/graphite image:
-  `public/images/editorial-paper-field.png`.
-- Full-bleed image, paper overlay, thin drawn line, soft breathing accent.
+- Generated pencil nature assets:
+  `public/images/portfolio/pencil-mountain-hero.png`,
+  `public/images/portfolio/pencil-fern-river.png`, and
+  `public/images/portfolio/pencil-leaf-system.png`.
+- Full-bleed mountain drawing, section images, thin drawn line, soft breathing
+  accent.
 - Chapter markers and sparse evidence.
 - No diagrams, graphs, fake dashboards, product cards, boxed ledgers, or badges.
 
@@ -166,8 +180,9 @@ Sections:
 Language rules:
 
 - One strong hero idea.
-- Short supporting copy with more human phrasing.
-- Work stories as flowing evidence, not case-study cards.
+- Short supporting copy that sounds like Mateo speaking.
+- Work stories as first-person-adjacent narrative evidence, not case-study
+  cards.
 - Tool language must reflect actual resume categories.
 - No long timeline unless explicitly requested.
 
@@ -188,7 +203,8 @@ Technical rules:
   styling.
 - Content lives in a nearby content module.
 - Avoid one-off CSS selectors for layout.
-- Use the generated visual as a project asset for this iteration.
+- Use generated visuals from `public/images/portfolio/` as project assets for
+  this iteration.
 
 ## Component Plan
 
@@ -216,24 +232,26 @@ Responsibilities:
 
 ## Iteration Acceptance
 
-Iteration 11 is acceptable when:
+Iteration 12 is acceptable when:
 
 - The page no longer feels like SaaS.
 - The page feels closer to the committed minimal journal, but more beautiful.
 - The hero is strong, quiet, and first-screen dominant.
 - The composition avoids square work cards and dashboard-like grids.
-- Generated imagery is used as a real visual asset.
+- Generated pencil nature imagery is used as real visual assets.
 - Cards, boxed ledgers, and badge-like tool chips are removed.
 - Work entries include dates and concrete descriptions.
 - Tools section is grouped from resume categories.
 - White/dark theme is polished with soft black/white and cool accent colors.
 - Hard blue is removed.
 - Accent color is restrained but memorable.
-- Fonts are clean, editorial, and non-cursive.
-- Copy is shorter and more human.
+- Fonts are clean, sans-only, and non-cursive.
+- Titles are not oversized.
+- Copy is shorter, more human, and less sales-like.
+- Work and tools read vertically with more storytelling.
 - Tailwind classes carry the layout/styling.
 - GSAP is abstracted out of the page.
-- Motion has a clear editorial craft pass and respects reduced-motion.
+- Motion has a clear pencil/nature craft pass and respects reduced-motion.
 - Desktop and mobile have no horizontal overflow.
 - `lint`, `typecheck`, `test`, and `build` pass.
 
@@ -371,3 +389,19 @@ Iteration 11 is acceptable when:
 - Priority: High
 - Decision: Rework
 - Notes: This swipe is `soft-editorial-craft`.
+
+### Feedback Entry
+
+- Iteration: 12 - Pencil nature narrative
+- Date: 2026-05-26
+- What I liked: Current committed direction is a better base than the hard-blue
+  passes.
+- What I disliked: Serif type, oversized titles, structured fact blocks, weak
+  work/tool distribution, AI-selling language, and asset handling that relies
+  too much on one background.
+- Required changes: Use no serif fonts, reduce title scale, make work and tools
+  vertical, write more like Mateo speaking, manage multiple assets cleanly, use
+  icons, and prefer pencil-drawn nature backgrounds.
+- Priority: High
+- Decision: Rework
+- Notes: This swipe is `pencil-nature-narrative`.

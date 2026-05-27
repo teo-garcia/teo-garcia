@@ -1,34 +1,64 @@
+import {
+  Braces,
+  Cloud,
+  Database,
+  Layers3,
+  LockKeyhole,
+  MonitorSmartphone,
+  PanelsTopLeft,
+} from 'lucide-react'
+
 import { toolGroups } from './content'
+
+const toolIcons = [
+  Braces,
+  MonitorSmartphone,
+  Layers3,
+  Database,
+  LockKeyhole,
+  Cloud,
+  PanelsTopLeft,
+]
 
 export function ToolsSection() {
   return (
     <section className='py-24 sm:py-32' data-reveal data-section='tools'>
-      <div className='grid gap-12 lg:grid-cols-[minmax(18rem,0.75fr)_1.6fr]'>
+      <div className='grid gap-12 lg:grid-cols-[minmax(18rem,0.75fr)_1.4fr]'>
         <div className='max-w-xl'>
           <p className='text-xs font-semibold uppercase tracking-[0.22em] text-accent'>
             Tools
           </p>
-          <h2 className='mt-5 text-balance font-serif text-5xl font-semibold leading-none sm:text-7xl'>
-            The toolset is wide because the work has been wide.
+          <h2 className='mt-5 text-balance text-3xl font-semibold leading-tight sm:text-5xl'>
+            Tools are just where the work happened.
           </h2>
           <p className='mt-6 text-base leading-7 text-muted-foreground'>
-            The list stays grounded in shipped work: identity, CMS cleanup,
-            campaign automation, product surfaces, data, and integrations.
+            I do not want this to read like a keyword wall. These are the
+            buckets I have actually worked across: UI, services, data, identity,
+            content systems, delivery, and the glue between them.
           </p>
         </div>
-        <div className='grid gap-x-10 gap-y-8 sm:grid-cols-2'>
-          {toolGroups.map((group) => (
+        <div className='space-y-6'>
+          {toolGroups.map((group, index) => (
             <section
-              className='border-t border-border/80 pt-5'
+              className='grid gap-4 border-t border-border/80 pt-5 sm:grid-cols-[2rem_10rem_1fr]'
               data-tool-group
               key={group.label}
             >
-              <h2 className='font-serif text-2xl font-semibold'>
-                {group.label}
-              </h2>
-              <p className='mt-3 text-sm leading-7 text-muted-foreground sm:text-base'>
-                {group.tools.join(' / ')}
-              </p>
+              <div className='grid size-8 place-items-center rounded-full border border-border text-accent'>
+                {(() => {
+                  const Icon = toolIcons[index] ?? Braces
+                  return <Icon className='size-4' aria-hidden='true' />
+                })()}
+              </div>
+              <h2 className='text-base font-semibold'>{group.label}</h2>
+              <div>
+                <p className='text-sm leading-6 text-muted-foreground'>
+                  {group.note}
+                </p>
+                <p className='mt-2 text-sm leading-7 text-foreground/82'>
+                  {group.tools.join(' / ')}
+                </p>
+              </div>
             </section>
           ))}
         </div>

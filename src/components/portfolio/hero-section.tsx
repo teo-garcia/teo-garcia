@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail } from 'lucide-react'
+import { ArrowUpRight, Mail, Mountain } from 'lucide-react'
 
 import { hero } from './content'
 
@@ -9,17 +9,18 @@ export function HeroSection() {
       data-section='start'
     >
       <div className='w-full'>
-        <div className='max-w-4xl' data-hero-motion>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-accent'>
+        <div className='max-w-3xl' data-hero-motion>
+          <p className='inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent'>
+            <Mountain className='size-4' aria-hidden='true' />
             {hero.eyebrow}
           </p>
           <h1
-            className='mt-6 max-w-4xl text-balance font-serif text-6xl font-semibold leading-[0.9] text-foreground sm:text-7xl lg:text-8xl'
+            className='mt-6 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] text-foreground sm:text-5xl lg:text-6xl'
             data-title-mask
           >
             {hero.title}
           </h1>
-          <p className='mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9'>
+          <p className='mt-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg'>
             {hero.body}
           </p>
           <div
@@ -44,18 +45,16 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div
-          className='mt-16 grid max-w-5xl gap-8 sm:grid-cols-3'
-          data-hero-ledger
-        >
+        <div className='mt-14 max-w-3xl space-y-4' data-hero-ledger>
           {hero.ledger.map((item, index) => (
-            <div className='border-t border-border/70 pt-4' key={item}>
-              <span className='font-serif text-2xl font-semibold text-accent'>
+            <div
+              className='flex gap-4 border-t border-border/70 pt-4'
+              key={item}
+            >
+              <span className='text-sm font-semibold text-accent'>
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                {item}
-              </p>
+              <p className='text-sm leading-6 text-muted-foreground'>{item}</p>
             </div>
           ))}
         </div>

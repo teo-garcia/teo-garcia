@@ -1,11 +1,11 @@
 export const hero = {
   eyebrow: 'Mateo Garcia / Senior Software Engineer',
-  title: 'Calm software for messy places.',
-  body: 'I work across the stack, but the useful part is quieter: understand the constraint, name what is really happening, and build the piece people can trust in production.',
+  title: 'I build the part that makes the rest easier to reason about.',
+  body: 'Most of my work starts with a rough sentence: access is confusing, the CMS is lying, reporting is slow, launches are getting risky. I like turning that sentence into software the team can actually live with.',
   ledger: [
-    'Identity and access work for teams that cannot afford confusion.',
-    'Legacy CMS and product behavior turned into cleaner flows.',
-    'Campaign systems, launches, and tooling shipped under real pressure.',
+    'Identity and access when the rules keep changing.',
+    'Legacy CMS behavior made less mysterious.',
+    'Campaign systems and launches that need calm decisions.',
   ],
   links: [
     {
@@ -20,102 +20,104 @@ export const hero = {
 } as const
 
 export const about = [
-  'I like the part where the brief is still a little rough. Someone knows the system hurts, but the reason is spread across code, process, old decisions, and a few things nobody has written down.',
-  'That is where I am useful: slow down enough to see the shape, then build with enough care that the next person does not have to guess.',
+  'I am not trying to make every project sound dramatic. A lot of good engineering is just staying with the messy part long enough to stop guessing.',
+  'I ask where the truth lives, what people are working around, and which decision will make the next release less painful. Then I build the boring, durable thing.',
 ] as const
 
 export const chapters = ['Start', 'Shape', 'Work', 'Tools', 'Note'] as const
+
+export const assets = {
+  fern: {
+    alt: 'Pencil drawing of ferns, branches, river stones, and soft mist.',
+    src: '/images/portfolio/pencil-fern-river.png',
+  },
+  leafSystem: {
+    alt: 'Pencil drawing of leaves, roots, stones, and mountain contour lines.',
+    src: '/images/portfolio/pencil-leaf-system.png',
+  },
+  mountain: {
+    alt: 'Pencil drawing of misty mountain ridges and thin trees.',
+    src: '/images/portfolio/pencil-mountain-hero.png',
+  },
+} as const
 
 export const work = [
   {
     company: 'Gorilla Logic / AdCellerant',
     dates: 'Sep 2024 - Present',
-    proof: [
-      'Identity and role-based access for a growing user base',
-      'Federated GraphQL services across independently deployable backends',
-      'Campaign setup, reporting, and client presentation workflows',
-    ],
+    proof: ['FusionAuth', 'Apollo Federation', 'campaign reporting'],
     summary:
-      'Orders, line items, products, reports, identity, permissions, and client-facing material. The useful move is making access and campaign setup feel obvious.',
-    title: 'Campaign systems with identity at the center',
+      'This is the kind of work where small access decisions become product decisions. I have been working through orders, line items, products, reports, identity, permissions, and the client-facing material around them.',
+    title: 'AdCellerant',
   },
   {
     company: 'Gorilla Logic / Evolve',
     dates: 'Apr 2022 - Sep 2024',
-    proof: [
-      'Image loading and content delivery work for a visual product surface',
-      'Reverse-engineered undocumented WordPress behavior into reliable flows',
-      'Led Salesforce integration work and owned tech-lead decisions',
-    ],
+    proof: ['WordPress', 'Salesforce', 'image-heavy product surfaces'],
     summary:
-      'Property search, booking surfaces, image-heavy pages, a legacy WordPress CMS, Salesforce consistency, and release choices that had to hold.',
-    title: 'Travel product work under legacy constraints',
+      'The product looked simple from the outside: find a place, book it, trust the photos. Underneath, a legacy CMS and Salesforce integration had their own history. I spent a lot of time making the invisible parts behave.',
+    title: 'Evolve',
   },
   {
     company: 'Matter Supply / Netflix',
     dates: 'Nov 2021 - Apr 2022',
-    proof: [
-      'Two multilingual promotional sites for film and documentary launches',
-      'Six-language delivery across Colombia and US collaborators',
-      'Scope, handoff, and release discipline under tight timelines',
-    ],
+    proof: ['multilingual launches', 'tight timelines', 'distributed handoff'],
     summary:
-      'Two multilingual launches, six languages, distributed collaborators, and a deadline that rewarded clear decisions more than clever ones.',
-    title: 'Launch work without theatrics',
+      'Two promotional sites, six languages, people in different countries, and no room for clever chaos. The job was to keep the build clean enough that the launch stayed boring.',
+    title: 'Netflix promotional sites',
   },
   {
     company: 'Huge / Stellantis',
     dates: 'Jun 2020 - Nov 2021',
-    proof: [
-      'Preact introduced as a lightweight rendering path for banner workflows',
-      'Dynamic campaign assets generated from data inputs at volume',
-      'Automation reduced repetitive manual production work',
-    ],
+    proof: ['Preact', 'data-driven banners', 'production automation'],
     summary:
-      'A repetitive banner workflow became a production system: Preact, dynamic data, and automation replacing manual drag.',
-    title: 'Turning campaign production into tooling',
+      'There was too much repeated manual production. I helped turn that into a lightweight rendering and automation path so the team could generate campaign assets from data instead of dragging work around by hand.',
+    title: 'Stellantis',
   },
   {
     company: 'Globant / Pragma',
     dates: 'May 2019 - Jun 2020',
-    proof: [
-      'React SPAs inside Drupal constraints for Banco Santander',
-      'Promotional campaign apps with authenticated games and incentives',
-      'React training that helped move an internal team away from Angular.js',
-    ],
+    proof: ['React', 'Drupal', 'authenticated campaign apps'],
     summary:
-      'Banking SPAs inside Drupal, campaign apps, authenticated games, and React training while the local team changed direction.',
-    title: 'Early systems, banking, and team lift',
+      'Early work had a lot of constraints: banking SPAs inside Drupal, campaign apps with authenticated games, and a team learning React while moving away from older habits.',
+    title: 'Banco Santander and campaign systems',
   },
 ] as const
 
 export const toolGroups = [
   {
-    label: 'Languages I reach for',
+    note: 'The default language for product work, with Python and SQL when the problem is closer to data or automation.',
+    label: 'Languages',
     tools: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
   },
   {
-    label: 'Interfaces and product surfaces',
+    note: 'Where I spend most of the visible time: product surfaces, campaign pages, booking flows, and internal tools.',
+    label: 'Frontend',
     tools: ['React', 'Next.js', 'Preact', 'React Native', 'Storybook'],
   },
   {
-    label: 'Services and queues',
+    note: 'Enough backend to own real workflows instead of throwing problems over a wall.',
+    label: 'Backend',
     tools: ['Node.js', 'NestJS', 'Express', 'FastAPI', 'BullMQ'],
   },
   {
-    label: 'Data and search',
+    note: 'The systems behind the screen: relational data, cached state, search, and queues when the product needs them.',
+    label: 'Data',
     tools: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch'],
   },
   {
-    label: 'APIs, identity, and access',
+    note: 'The places where product language has to become enforceable rules.',
+    label: 'APIs and identity',
     tools: ['REST', 'GraphQL', 'Apollo Federation', 'OAuth 2.0', 'FusionAuth'],
   },
   {
-    label: 'Shipping and observability',
+    note: 'Not a separate phase. Part of making the work understandable after it leaves the branch.',
+    label: 'Delivery',
     tools: ['AWS', 'GCloud', 'Docker', 'Cloudflare', 'Datadog', 'Playwright'],
   },
   {
-    label: 'CMS, commerce, and integrations',
+    note: 'Where older content systems and business platforms meet the actual product.',
+    label: 'Platforms',
     tools: ['WordPress', 'Strapi', 'Drupal', 'Salesforce', 'Stripe', 'Shopify'],
   },
 ] as const

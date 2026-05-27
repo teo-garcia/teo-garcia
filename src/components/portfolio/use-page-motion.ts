@@ -25,8 +25,8 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
         const media = gsap.matchMedia()
 
         media.add('(prefers-reduced-motion: no-preference)', () => {
-          const image = document.querySelector('[data-paper-image]')
-          const grade = document.querySelector('[data-paper-grade]')
+          const image = document.querySelector('[data-nature-image]')
+          const grade = document.querySelector('[data-nature-grade]')
           const line = document.querySelector('[data-drawn-line]')
           const breath = document.querySelector('[data-soft-breath]')
           const markers = gsap.utils.toArray<HTMLElement>(
@@ -34,6 +34,9 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
           )
           const progress = document.querySelector('[data-scroll-progress]')
           const sections = gsap.utils.toArray<HTMLElement>('[data-section]')
+          const sectionImages = gsap.utils.toArray<HTMLElement>(
+            '[data-section-image]'
+          )
 
           function activateMarker(sectionName: string) {
             markers.forEach((marker) => {
@@ -201,6 +204,21 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
                 y: 24,
               })
             })
+
+          sectionImages.forEach((element) => {
+            gsap.from(element, {
+              duration: 1,
+              ease: 'power3.out',
+              opacity: 0,
+              rotate: -1.5,
+              scale: 0.96,
+              scrollTrigger: {
+                start: 'top 80%',
+                trigger: element,
+              },
+              y: 28,
+            })
+          })
 
           return () => heroTimeline.kill()
         })

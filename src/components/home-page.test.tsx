@@ -10,12 +10,12 @@ test('HomePage renders portfolio content', () => {
 
   expect(
     screen.getByRole('heading', {
-      name: /calm software for messy places/i,
+      name: /i build the part that makes the rest easier to reason about/i,
     })
   ).toBeInTheDocument()
   expect(
     screen.getByRole('heading', {
-      name: 'Campaign systems with identity at the center',
+      name: 'AdCellerant',
     })
   ).toBeInTheDocument()
   expect(screen.getByText(/Apollo Federation/i)).toBeInTheDocument()
