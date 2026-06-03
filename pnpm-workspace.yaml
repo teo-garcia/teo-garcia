@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+  msw: true
+  sharp: true
+
+overrides:
+  "path-to-regexp@6.1.0": "8.4.2"
+  "yaml@2.7.1": "2.8.3"
