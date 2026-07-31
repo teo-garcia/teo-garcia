@@ -18,7 +18,7 @@ test('HomePage renders portfolio content', () => {
       name: 'Global ad tech platform',
     })
   ).toBeInTheDocument()
-  expect(screen.getByText(/Apollo Federation/i)).toBeInTheDocument()
+  expect(screen.getAllByText(/Apollo Federation/i)).toHaveLength(2)
   expect(container.querySelector('[data-hero-motion]')).not.toBeNull()
 })
 

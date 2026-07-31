@@ -1,4 +1,5 @@
 import { QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ThemeProvider } from 'better-themes'
 import { useEffect, useState } from 'react'
 
@@ -25,6 +26,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
         {children}
         <ThemeSwitch />
+        <ReactQueryDevtools buttonPosition='bottom-left' />
       </ThemeProvider>
     </QueryClientProvider>
   )

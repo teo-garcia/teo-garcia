@@ -1,6 +1,7 @@
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import vercel from '@astrojs/vercel'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { visualizer } from 'rollup-plugin-visualizer'
 
@@ -8,9 +9,6 @@ const isVercel = process.env.VERCEL === '1'
 const shouldAnalyze = process.env.ANALYZE === 'true'
 
 export default defineConfig({
-  devToolbar: {
-    enabled: false,
-  },
   site: process.env.PUBLIC_SITE_URL ?? 'http://localhost:4321',
   integrations: [
     react({
@@ -27,6 +25,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [
+      tailwindcss(),
       shouldAnalyze &&
         visualizer({
           brotliSize: true,
