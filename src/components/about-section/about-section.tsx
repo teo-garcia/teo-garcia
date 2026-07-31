@@ -1,4 +1,4 @@
-import { about, assets } from './content'
+import { about, assets } from '../home-page/content'
 
 export function AboutSection() {
   return (

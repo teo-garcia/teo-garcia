@@ -1,13 +1,13 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useRef } from 'react'
 
-import { AboutSection } from './portfolio/about-section'
-import { ContactSection } from './portfolio/contact-section'
-import { chapters, hero, navItems } from './portfolio/content'
-import { HeroSection } from './portfolio/hero-section'
-import { ToolsSection } from './portfolio/tools-section'
-import { usePageMotion } from './portfolio/use-page-motion'
-import { WorkSection } from './portfolio/work-section'
+import { AboutSection } from '../about-section/about-section'
+import { ContactSection } from '../contact-section/contact-section'
+import { HeroSection } from '../hero-section/hero-section'
+import { ToolsSection } from '../tools-section/tools-section'
+import { WorkSection } from '../work-section/work-section'
+import { chapters, hero, navItems } from './content'
+import { usePageMotion } from './use-page-motion'
 
 export default function HomePage() {
   const rootRef = useRef<HTMLElement>(null)
