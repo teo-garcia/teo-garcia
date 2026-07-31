@@ -22,7 +22,7 @@ ecosystem
 
 | Category         | Technologies                                |
 | ---------------- | ------------------------------------------- |
-| **Framework**    | Astro 6 with React islands and SSR build    |
+| **Framework**    | Astro 7 with React islands and SSR build    |
 | **UI**           | React 19, Tailwind CSS 4, Lucide Icons      |
 | **Data**         | TanStack Query for client-side data flows   |
 | **Type Safety**  | TypeScript with shared config presets       |
