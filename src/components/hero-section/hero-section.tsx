@@ -1,6 +1,6 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
-import { assets, hero } from '../home-page/content'
+import { assets, hero } from '../portfolio-content/portfolio-content'
 
 export function HeroSection() {
   return (

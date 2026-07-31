@@ -7,7 +7,7 @@ import {
   Wrench,
 } from 'lucide-react'
 
-import { work } from '../home-page/content'
+import { work } from '../portfolio-content/portfolio-content'
 
 const workIcons = [KeyRound, Wrench, Languages, GitBranch, BriefcaseBusiness]
 

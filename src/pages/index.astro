@@ -1,6 +1,6 @@
 ---
 import Base from '~/layouts/base.astro'
-import HomePage from '~/components/home-page/home-page'
+import Portfolio from '~/components/portfolio/portfolio'
 import { siteMetadata } from '~/lib/seo'
 ---
 
@@ -8,5 +8,5 @@ import { siteMetadata } from '~/lib/seo'
   title={`Home | ${siteMetadata.shortName}`}
   description={siteMetadata.description}
 >
-  <HomePage client:load />
+  <Portfolio client:load />
 </Base>

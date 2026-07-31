@@ -4,15 +4,19 @@ import { useRef } from 'react'
 import { AboutSection } from '../about-section/about-section'
 import { ContactSection } from '../contact-section/contact-section'
 import { HeroSection } from '../hero-section/hero-section'
+import {
+  chapters,
+  hero,
+  navItems,
+} from '../portfolio-content/portfolio-content'
+import { usePortfolioMotion } from '../portfolio-motion/use-portfolio-motion'
 import { ToolsSection } from '../tools-section/tools-section'
 import { WorkSection } from '../work-section/work-section'
-import { chapters, hero, navItems } from './content'
-import { usePageMotion } from './use-page-motion'
 
-export default function HomePage() {
+export default function Portfolio() {
   const rootRef = useRef<HTMLElement>(null)
 
-  usePageMotion(rootRef)
+  usePortfolioMotion(rootRef)
 
   return (
     <div className='relative min-h-screen overflow-x-hidden bg-background text-foreground selection:bg-accent/30'>

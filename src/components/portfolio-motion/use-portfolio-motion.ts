@@ -1,7 +1,7 @@
 import type { RefObject } from 'react'
 import { useEffect } from 'react'
 
-export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
+export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
     if (import.meta.env.MODE === 'test') {
       return

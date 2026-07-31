@@ -8,7 +8,7 @@ import {
   PanelsTopLeft,
 } from 'lucide-react'
 
-import { toolGroups } from '../home-page/content'
+import { toolGroups } from '../portfolio-content/portfolio-content'
 
 const toolIcons = [
   Braces,

@@ -48,7 +48,7 @@
   4. Reduce copy density.
   5. Prefer Tailwind classes in components over page-specific CSS.
   6. Import section components at page level.
-  7. Keep animation logic in `usePageMotion` or a similar abstraction.
+  7. Keep animation logic in `usePortfolioMotion` or a similar abstraction.
   8. Use a serious semi-transparent nature background instead of placeholders or
      graph motifs.
   9. Keep the background image visible in both themes without hurting text
@@ -192,12 +192,12 @@ Motion:
   lines, breathing accents, evidence reveals, and progress.
 - Motion should feel premium and editorial while preserving reduced-motion.
 - Use `prefers-reduced-motion`.
-- Keep all GSAP in `usePageMotion`.
+- Keep all GSAP in `usePortfolioMotion`.
 
 Technical rules:
 
-- Astro page imports one React island: `HomePage`.
-- `HomePage` imports section components.
+- Astro page imports one React island: `Portfolio`.
+- `Portfolio` imports section components.
 - Section components use Tailwind classes.
 - Global CSS only owns Tailwind import, theme tokens, fonts, and base body
   styling.
@@ -211,21 +211,21 @@ Technical rules:
 Target structure:
 
 ```text
-src/components/home-page.tsx
-src/components/portfolio/content.ts
-src/components/portfolio/hero-section.tsx
-src/components/portfolio/about-section.tsx
-src/components/portfolio/work-section.tsx
-src/components/portfolio/tools-section.tsx
-src/components/portfolio/contact-section.tsx
-src/components/portfolio/use-page-motion.ts
+src/components/portfolio/portfolio.tsx
+src/components/portfolio-content/portfolio-content.ts
+src/components/portfolio-motion/use-portfolio-motion.ts
+src/components/hero-section/hero-section.tsx
+src/components/about-section/about-section.tsx
+src/components/work-section/work-section.tsx
+src/components/tools-section/tools-section.tsx
+src/components/contact-section/contact-section.tsx
 ```
 
 Responsibilities:
 
-- `home-page.tsx`: page composition and root ref.
-- `content.ts`: copy and data only.
-- `use-page-motion.ts`: GSAP setup, cleanup, reduced-motion checks.
+- `portfolio.tsx`: page composition and root ref.
+- `portfolio-content.ts`: copy and data only.
+- `use-portfolio-motion.ts`: GSAP setup, cleanup, reduced-motion checks.
 - section files: presentational React components with Tailwind classes.
 - hero uses `public/images/forest-system-background.png` as the current nature
   visual.

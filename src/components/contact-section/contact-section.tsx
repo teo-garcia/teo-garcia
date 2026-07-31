@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import type { ReactNode } from 'react'
 
-import { assets, contact } from '../home-page/content'
+import { assets, contact } from '../portfolio-content/portfolio-content'
 
 export function ContactSection() {
   return (

@@ -3,10 +3,10 @@ import axe from 'axe-core'
 
 import { render } from '~/lib/test/render'
 
-import HomePage from './home-page'
+import Portfolio from './portfolio'
 
-test('HomePage renders portfolio content', () => {
-  const { container } = render(<HomePage />)
+test('Portfolio renders portfolio content', () => {
+  const { container } = render(<Portfolio />)
 
   expect(
     screen.getByRole('heading', {
@@ -22,8 +22,8 @@ test('HomePage renders portfolio content', () => {
   expect(container.querySelector('[data-hero-motion]')).not.toBeNull()
 })
 
-test('HomePage has no accessibility violations', async () => {
-  const { container } = render(<HomePage />)
+test('Portfolio has no accessibility violations', async () => {
+  const { container } = render(<Portfolio />)
   const results = await axe.run(container)
 
   expect(results.violations).toEqual([])
