@@ -4,6 +4,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -11,42 +12,85 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-faint: var(--faint);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-ring: var(--ring);
+
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
 }
 
 :root {
-  --background: #f7f6f1;
-  --paper: #ffffff;
-  --foreground: #11110f;
-  --primary: #11110f;
-  --primary-foreground: #f7f6f1;
-  --secondary: #ece9df;
-  --secondary-foreground: #11110f;
-  --muted: #ebe8df;
-  --muted-foreground: #555650;
-  --accent: #3f7563;
-  --accent-foreground: #07120f;
-  --border: rgb(17 17 15 / 18%);
-  --ring: #82b6a4;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --foreground: #0a0a0a;
+  --primary: #0a0a0a;
+  --primary-foreground: #fafafa;
+  --secondary: #f2f2f3;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f0f0f1;
+  --muted-foreground: #6b6b70;
+  --faint: #9a9aa0;
+  --accent: #0a0a0a;
+  --accent-foreground: #fafafa;
+  --border: rgb(10 10 10 / 10%);
+  --border-strong: rgb(10 10 10 / 24%);
+  --ring: rgb(10 10 10 / 55%);
+
+  --glow-core: rgb(10 10 10 / 7%);
+  --glow-soft: rgb(10 10 10 / 4%);
+  --glow-faint: rgb(10 10 10 / 2%);
+  --grid-line: rgb(10 10 10 / 6%);
+  --grain-opacity: 0.035;
+  --panel: linear-gradient(
+    160deg,
+    rgb(10 10 10 / 4%) 0%,
+    rgb(10 10 10 / 1%) 42%,
+    rgb(10 10 10 / 0%) 100%
+  );
+  --edge-light: rgb(10 10 10 / 12%);
+
+  color-scheme: light;
 }
 
+/*
+ * Dark is the primary canvas. Every gradient below is authored once against
+ * these variables, so light mode is a re-tune rather than a second design.
+ */
 .dark {
-  --background: #090908;
-  --paper: #11110f;
-  --foreground: #f5f2ea;
-  --primary: #f5f2ea;
-  --primary-foreground: #090908;
-  --secondary: #161613;
-  --secondary-foreground: #f5f2ea;
-  --muted: #171712;
-  --muted-foreground: #aaa69b;
-  --accent: #a6cfc0;
-  --accent-foreground: #08100d;
-  --border: rgb(245 242 234 / 18%);
-  --ring: #a6cfc0;
+  --background: #050505;
+  --surface: #0a0a0b;
+  --foreground: #f4f4f5;
+  --primary: #fafafa;
+  --primary-foreground: #050505;
+  --secondary: #0e0e10;
+  --secondary-foreground: #f4f4f5;
+  --muted: #131316;
+  --muted-foreground: #8a8a91;
+  --faint: #5a5a61;
+  --accent: #fafafa;
+  --accent-foreground: #050505;
+  --border: rgb(255 255 255 / 8%);
+  --border-strong: rgb(255 255 255 / 20%);
+  --ring: rgb(255 255 255 / 55%);
+
+  /* Hand-built background system */
+  --glow-core: rgb(255 255 255 / 9%);
+  --glow-soft: rgb(255 255 255 / 5%);
+  --glow-faint: rgb(255 255 255 / 2.5%);
+  --grid-line: rgb(255 255 255 / 6%);
+  --grain-opacity: 0.05;
+  --panel: linear-gradient(
+    160deg,
+    rgb(255 255 255 / 5%) 0%,
+    rgb(255 255 255 / 1.5%) 42%,
+    rgb(255 255 255 / 0%) 100%
+  );
+  --edge-light: rgb(255 255 255 / 14%);
+
   color-scheme: dark;
 }
 
@@ -62,8 +106,10 @@
     overflow-x: hidden;
     background: var(--background);
     color: var(--foreground);
-    font-family: 'Instrument Sans', Inter, system-ui, sans-serif;
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv01';
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   a {
@@ -72,8 +118,132 @@
   }
 
   ::selection {
-    background: #a6cfc0;
-    color: #08100d;
+    background: var(--foreground);
+    color: var(--background);
+  }
+}
+
+@layer components {
+  /* Film grain. Keeps large flat blacks from banding. */
+  .layer-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: var(--grain-opacity);
+  }
+
+  /* Engineering grid that dissolves toward the bottom of the viewport. */
+  .layer-grid {
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      #000 20%,
+      transparent 78%
+    );
+  }
+
+  /* The hero spotlight: a wide cone of light falling from above. */
+  .layer-spotlight {
+    background:
+      radial-gradient(
+        ellipse 70% 52% at 50% -8%,
+        var(--glow-core) 0%,
+        var(--glow-soft) 34%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 46% 40% at 82% 18%,
+        var(--glow-faint) 0%,
+        transparent 62%
+      ),
+      radial-gradient(
+        ellipse 52% 44% at 12% 74%,
+        var(--glow-faint) 0%,
+        transparent 66%
+      );
+  }
+
+  /* Slow drifting bloom, animated by GSAP. */
+  .layer-bloom {
+    background: radial-gradient(
+      circle at center,
+      var(--glow-core) 0%,
+      var(--glow-soft) 30%,
+      transparent 68%
+    );
+    filter: blur(60px);
+  }
+
+  /*
+   * Raised sections fade in and out of the page background instead of
+   * butting against it, so no hard horizontal seam is ever visible.
+   */
+  .surface-band {
+    background: linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--surface) 14%,
+      var(--surface) 86%,
+      var(--background) 100%
+    );
+  }
+
+  /* Same idea, for the final section: fade in at the top only. */
+  .surface-tail {
+    background: linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--surface) 18%,
+      var(--surface) 100%
+    );
+  }
+
+  /* Hairline rule that fades at both ends instead of stopping hard. */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--border-strong) 22%,
+      var(--border-strong) 78%,
+      transparent 100%
+    );
+  }
+
+  /* Card surface: a lit top-left edge over near-black. */
+  .panel {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--border);
+  }
+
+  .panel::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--edge-light) 0%, transparent 1px);
+    content: '';
+    pointer-events: none;
+  }
+
+  /* Headline treatment: text fades from full white into gray. */
+  .text-sheen {
+    background: linear-gradient(
+      168deg,
+      var(--foreground) 8%,
+      var(--muted-foreground) 96%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 }
 

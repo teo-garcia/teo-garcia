@@ -1,154 +1,205 @@
 export const hero = {
-  eyebrow: 'I build systems that move product forward',
   name: 'Mateo Garcia',
   role: 'Senior Software Engineer',
-  title: 'I build the part that makes the rest easier to reason about.',
-  body: 'I work across the stack to turn ambiguous product problems into clear, durable software.',
-  ledger: [
-    'Understand the real problem',
-    'Design for clarity and scale',
-    'Build with care and iterate',
+  intro: "Hi — I'm Mateo.",
+  title: 'I make complicated software feel obvious.',
+  body: "Seven years shipping the unglamorous parts: auth, permissions, integrations, the legacy service nobody wants to open. Turns out that's exactly where products get stuck.",
+  readout: [
+    { label: 'Experience', value: '7 yrs' },
+    { label: 'Stops', value: '05' },
+    { label: 'Base', value: 'Medellín · GMT-5' },
+    { label: 'Status', value: 'Open to talk' },
   ],
   links: [
     {
       href: 'mailto:juanmateogarcia96@gmail.com',
-      label: "Let's talk",
+      label: 'Start a conversation',
     },
-    {
-      href: 'https://linkedin.com/in/teogarcia0',
-      label: 'LinkedIn',
-    },
+    { href: 'https://linkedin.com/in/teogarcia0', label: 'LinkedIn' },
   ],
 } as const
 
 export const navItems = [
+  { href: '#questions', label: 'Q&A' },
   { href: '#work', label: 'Work' },
-  { href: '#approach', label: 'Approach' },
   { href: '#stack', label: 'Stack' },
-  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
 ] as const
 
-export const about = {
-  eyebrow: 'Approach',
-  note: 'Not a process. Just how I think and work.',
-  title:
-    'I ask a lot of questions up front. I like to understand the constraints, the users, and the business. Then I focus on what actually moves the needle.',
-  body: 'I iterate, get feedback early, and keep the codebase healthy along the way.',
+export const chapters = [
+  { href: '#intro', id: 'intro', label: 'Intro' },
+  { href: '#questions', id: 'q&a', label: 'Q&A' },
+  { href: '#work', id: 'work', label: 'Work' },
+  { href: '#stack', id: 'stack', label: 'Stack' },
+  { href: '#contact', id: 'talk', label: 'Talk' },
+] as const
+
+export const questions = {
+  eyebrow: 'The Q&A',
+  title: 'The part where you ask the questions',
+  note: "Skip to the ones you actually care about. I won't be offended.",
+  items: [
+    {
+      question: 'So what do you actually do?',
+      answer:
+        'I take the part of the product everyone describes with their hands — “the permissions thing,” “the sync thing” — and turn it into something you can point at in code.',
+    },
+    {
+      question: 'Frontend or backend?',
+      answer:
+        'Frontend by reputation, both by necessity. I got tired of throwing problems over a wall and waiting two sprints, so I learned to own the whole path.',
+    },
+    {
+      question: 'What are you actually good at?',
+      answer:
+        "Walking into a codebase with six years of decisions in it and working out which ones still make sense. That's most of the job, and nobody ever puts it in the job post.",
+    },
+    {
+      question: "What's the catch?",
+      answer:
+        "I ask a lot of questions before I write anything. Some people read that as slow. It's reliably cheaper than building the wrong thing twice.",
+    },
+    {
+      question: 'Why should I care?',
+      answer:
+        "If you're still reading, something in your product is probably harder to change than it should be. I'm good at fixing that specific problem.",
+    },
+  ],
 } as const
 
-export const chapters = ['Start', 'Shape', 'Work', 'Tools', 'Note'] as const
-
-export const assets = {
-  botanicalBand: {
-    alt: 'Pencil drawing of a leafy branch over a dark field.',
-    src: '/images/portfolio/editorial-botanical-band.png',
-  },
-  lighthouseContact: {
-    alt: 'Pencil drawing of a coastal lighthouse with mist and waves.',
-    src: '/images/portfolio/editorial-lighthouse-contact.png',
-  },
-  mountainHero: {
-    alt: 'Pencil drawing of a mountain peak with mist and field-journal marks.',
-    src: '/images/portfolio/editorial-mountain-hero.png',
-  },
-  fern: {
-    alt: 'Pencil drawing of ferns, branches, river stones, and soft mist.',
-    src: '/images/portfolio/pencil-fern-river.png',
-  },
-  leafSystem: {
-    alt: 'Pencil drawing of leaves, roots, stones, and mountain contour lines.',
-    src: '/images/portfolio/pencil-leaf-system.png',
-  },
-  mountain: {
-    alt: 'Pencil drawing of misty mountain ridges and thin trees.',
-    src: '/images/portfolio/pencil-mountain-hero.png',
-  },
+export const work = {
+  eyebrow: 'Track record',
+  title: "Where I've been",
+  note: 'Five stops. Same job title, wildly different flavors of chaos.',
+  items: [
+    {
+      years: "'24 — Now",
+      company: 'AdCellerant',
+      via: 'via Gorilla Logic',
+      title: 'Global ad tech platform',
+      summary:
+        "Identity, permissions, orders, line items, reporting. On a platform like this, “who can see what” isn't a settings page — it's the product. So I stopped treating access as plumbing and started treating it as a feature with opinions.",
+      stack: ['FusionAuth', 'Apollo Federation', 'GraphQL', 'React', 'Node'],
+    },
+    {
+      years: "'22 — '24",
+      company: 'Evolve',
+      via: 'via Gorilla Logic',
+      title: 'Vacation rental marketplace',
+      summary:
+        'Search, discovery, booking, and a fifteen-year-old CMS wired to Salesforce behind a curtain. Most of the value there was not new features — it was making the invisible sync behavior something a human could trust.',
+      stack: ['WordPress', 'Salesforce', 'React', 'Node', 'REST'],
+    },
+    {
+      years: "'21 — '22",
+      company: 'Netflix',
+      via: 'via Matter Supply',
+      title: 'Promotional launch sites',
+      summary:
+        'Two launch sites, six languages, four timezones, and zero appetite for surprises. The entire job was keeping the build boring enough that launch day stayed uneventful. It did.',
+      stack: ['React', 'Next.js', 'i18n', 'Contentful'],
+    },
+    {
+      years: "'20 — '21",
+      company: 'Stellantis',
+      via: 'via Huge',
+      title: 'Campaign automation',
+      summary:
+        'The team was hand-assembling hundreds of ad banners, by hand, every campaign. I helped replace the dragging-things-around with a rendering pipeline that takes data in and puts assets out. Nobody misses the old way.',
+      stack: ['Preact', 'Node', 'Build tooling', 'Automation'],
+    },
+    {
+      years: "'19 — '20",
+      company: 'Pragma',
+      via: 'via Globant',
+      title: 'Digital banking & campaigns',
+      summary:
+        'Banking SPAs living inside Drupal, authenticated campaign games, and a team learning React in real time. A great place to find out which of your habits were actually just opinions.',
+      stack: ['React', 'Drupal', 'JavaScript', 'PHP'],
+    },
+  ],
 } as const
 
-export const work = [
-  {
-    company: 'Gorilla Logic / AdCellerant',
-    dates: 'Sep 2024 - Present',
-    proof: 'FusionAuth / Apollo Federation / campaign reporting',
-    summary:
-      'Identity, permissions, orders, line items, products, reporting, and the client-facing details around them. Small access decisions became product decisions, so the work had to stay explicit.',
-    title: 'Global ad tech platform',
-  },
-  {
-    company: 'Gorilla Logic / Evolve',
-    dates: 'Apr 2022 - Sep 2024',
-    proof: 'WordPress / Salesforce / image-heavy product surfaces',
-    summary:
-      'Search, discovery, booking surfaces, and a legacy CMS with Salesforce behind it. A lot of the value was making the invisible sync behavior easier to trust.',
-    title: 'Vacation rental marketplace',
-  },
-  {
-    company: 'Matter Supply / Netflix',
-    dates: 'Nov 2021 - Apr 2022',
-    proof: 'multilingual launches / tight timelines / distributed handoff',
-    summary:
-      'Two promotional sites, six languages, people in different countries, and no room for clever chaos. The job was to keep the build clean enough that the launch stayed boring.',
-    title: 'Netflix promotional sites',
-  },
-  {
-    company: 'Huge / Stellantis',
-    dates: 'Jun 2020 - Nov 2021',
-    proof: 'Preact / data-driven banners / production automation',
-    summary:
-      'There was too much repeated manual production. I helped turn that into a lightweight rendering and automation path so the team could generate campaign assets from data instead of dragging work around by hand.',
-    title: 'Automated campaign systems',
-  },
-  {
-    company: 'Globant / Pragma',
-    dates: 'May 2019 - Jun 2020',
-    proof: 'React / Drupal / authenticated campaign apps',
-    summary:
-      'Early work had a lot of constraints: banking SPAs inside Drupal, campaign apps with authenticated games, and a team learning React while moving away from older habits.',
-    title: 'Digital banking and campaign apps',
-  },
-] as const
-
-export const toolGroups = [
-  {
-    note: 'The default language for product work, with Python and SQL when the problem is closer to data or automation.',
-    label: 'Languages',
-    tools: 'TypeScript, JavaScript, Python, SQL',
-  },
-  {
-    note: 'Where I spend most of the visible time: product surfaces, campaign pages, booking flows, and internal tools.',
-    label: 'Frontend',
-    tools: 'React, Next.js, Preact, React Native, Storybook, Playwright',
-  },
-  {
-    note: 'Enough backend to own real workflows instead of throwing problems over a wall.',
-    label: 'Backend',
-    tools: 'Node.js, NestJS, Express, FastAPI, BullMQ, GraphQL',
-  },
-  {
-    note: 'The systems behind the screen: relational data, cached state, search, and queues when the product needs them.',
-    label: 'Data',
-    tools: 'PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch',
-  },
-  {
-    note: 'The places where product language has to become enforceable rules.',
-    label: 'APIs and identity',
-    tools: 'REST, GraphQL, Apollo Federation, OAuth 2.0, FusionAuth',
-  },
-  {
-    note: 'Not a separate phase. Part of making the work understandable after it leaves the branch.',
-    label: 'Delivery',
-    tools: 'AWS, GCloud, Docker, Cloudflare, Datadog, GitHub Actions',
-  },
-  {
-    note: 'Where older content systems and business platforms meet the actual product.',
-    label: 'Platforms',
-    tools: 'WordPress, Strapi, Drupal, Salesforce, Stripe, Shopify',
-  },
-] as const
+export const stack = {
+  eyebrow: 'The toolkit',
+  title: 'The stuff in the bag',
+  note: 'Sorted by how often I actually open it, not by how it reads on a résumé.',
+  groups: [
+    {
+      label: 'Every single day',
+      weight: 4,
+      note: 'Wake me up at 3am and this is what I reach for without thinking.',
+      tools: [
+        'TypeScript',
+        'React',
+        'Next.js',
+        'Node.js',
+        'PostgreSQL',
+        'GraphQL',
+      ],
+    },
+    {
+      label: 'Most weeks',
+      weight: 3,
+      note: 'Comfortable and current. Not showing off, just getting it done.',
+      tools: [
+        'Python',
+        'NestJS',
+        'Express',
+        'Redis',
+        'Docker',
+        'Playwright',
+        'Storybook',
+      ],
+    },
+    {
+      label: 'Identity & contracts',
+      weight: 4,
+      note: 'Where product language has to become an enforceable rule. Consistently underestimated.',
+      tools: ['OAuth 2.0', 'FusionAuth', 'Apollo Federation', 'REST', 'Zod'],
+    },
+    {
+      label: 'Ship & watch',
+      weight: 3,
+      note: "Shipping isn't a separate phase, and neither is knowing whether it worked.",
+      tools: ['AWS', 'GCloud', 'Cloudflare', 'Datadog', 'GitHub Actions'],
+    },
+    {
+      label: 'When the problem asks',
+      weight: 2,
+      note: "Shipped real things with all of these. I don't pretend they're my personality.",
+      tools: [
+        'FastAPI',
+        'BullMQ',
+        'Elasticsearch',
+        'MongoDB',
+        'MySQL',
+        'React Native',
+      ],
+    },
+    {
+      label: "Legacy I don't flinch at",
+      weight: 2,
+      note: 'Somebody has to talk to these systems. Usually it pays for the rest of the roadmap.',
+      tools: [
+        'WordPress',
+        'Drupal',
+        'Salesforce',
+        'Stripe',
+        'Shopify',
+        'Strapi',
+      ],
+    },
+  ],
+} as const
 
 export const contact = {
+  eyebrow: "Let's talk",
+  title: 'Send me the messy version',
+  body: "Not the polished spec. The half-formed idea, the ticket that's been in the backlog for a year, the service everyone routes around. That's the interesting part, and it's usually the cheap part to fix.",
+  cta: 'Email me',
   email: 'juanmateogarcia96@gmail.com',
-  location: 'Medellin, Colombia / Remote friendly',
+  location: 'Medellín, Colombia · Remote friendly',
   phone: '+57 350 793 0191',
   site: 'teo-garcia.vercel.app',
   social: 'linkedin.com/in/teogarcia0',

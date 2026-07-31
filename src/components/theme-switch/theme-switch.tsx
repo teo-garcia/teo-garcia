@@ -15,18 +15,18 @@ export const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme()
   const mounted = useIsMounted()
 
-  const activeTheme: ThemeMode = (theme ?? 'system') as ThemeMode
+  const activeTheme: ThemeMode = (theme ?? 'dark') as ThemeMode
 
   const getNextTheme = (): ThemeMode => {
     switch (activeTheme) {
-      case 'light': {
-        return 'dark'
-      }
       case 'dark': {
+        return 'light'
+      }
+      case 'light': {
         return 'system'
       }
       default: {
-        return 'light'
+        return 'dark'
       }
     }
   }
@@ -34,13 +34,13 @@ export const ThemeSwitch = () => {
   const getCurrentIcon = () => {
     switch (activeTheme) {
       case 'light': {
-        return <Sun className='size-5' aria-hidden='true' />
+        return <Sun className='size-4' aria-hidden='true' />
       }
       case 'dark': {
-        return <Moon className='size-5' aria-hidden='true' />
+        return <Moon className='size-4' aria-hidden='true' />
       }
       default: {
-        return <Laptop className='size-5' aria-hidden='true' />
+        return <Laptop className='size-4' aria-hidden='true' />
       }
     }
   }
@@ -53,7 +53,7 @@ export const ThemeSwitch = () => {
           ? `Theme switcher, current mode: ${activeTheme}`
           : 'Theme switcher'
       }
-      className='fixed bottom-4 right-4 z-40 grid size-11 place-items-center border border-border bg-background/75 text-foreground shadow-sm backdrop-blur-xl transition-colors duration-200 hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background md:bottom-8 md:right-8'
+      className='fixed bottom-4 right-4 z-50 grid size-10 place-items-center rounded-full border border-border bg-background/70 text-muted-foreground backdrop-blur-xl transition duration-300 hover:border-border-strong hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background md:bottom-6 md:right-6'
       title={
         mounted
           ? `Current theme: ${activeTheme}. Click to switch to ${getNextTheme()}`
@@ -63,7 +63,7 @@ export const ThemeSwitch = () => {
       {mounted ? (
         getCurrentIcon()
       ) : (
-        <Laptop className='size-5' aria-hidden='true' />
+        <Moon className='size-4' aria-hidden='true' />
       )}
     </button>
   )
