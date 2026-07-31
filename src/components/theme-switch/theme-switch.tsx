@@ -53,7 +53,7 @@ export const ThemeSwitch = () => {
           ? `Theme switcher, current mode: ${activeTheme}`
           : 'Theme switcher'
       }
-      className='fixed right-4 top-4 rounded-lg border p-2 transition-colors duration-200 hover:bg-accent hover:text-accent-foreground md:right-8 md:top-8'
+      className='fixed bottom-4 right-4 z-40 grid size-11 place-items-center border border-border bg-background/75 text-foreground shadow-sm backdrop-blur-xl transition-colors duration-200 hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background md:bottom-8 md:right-8'
       title={
         mounted
           ? `Current theme: ${activeTheme}. Click to switch to ${getNextTheme()}`

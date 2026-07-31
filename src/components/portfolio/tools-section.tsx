@@ -22,41 +22,46 @@ const toolIcons = [
 
 export function ToolsSection() {
   return (
-    <section className='py-24 sm:py-32' data-reveal data-section='tools'>
-      <div className='grid gap-12 lg:grid-cols-[minmax(18rem,0.75fr)_1.4fr]'>
-        <div className='max-w-xl'>
+    <section
+      className='bg-secondary/70 px-5 py-20 sm:px-8 sm:py-24 lg:px-12'
+      data-reveal
+      data-section='tools'
+      id='stack'
+    >
+      <div className='mx-auto grid max-w-7xl gap-12 lg:grid-cols-[13rem_minmax(0,1fr)]'>
+        <aside>
           <p className='text-xs font-semibold uppercase tracking-[0.22em] text-accent'>
-            Tools
+            Stack
           </p>
-          <h2 className='mt-5 text-balance text-3xl font-semibold leading-tight sm:text-5xl'>
-            Tools are just where the work happened.
-          </h2>
-          <p className='mt-6 text-base leading-7 text-muted-foreground'>
-            I do not want this to read like a keyword wall. These are the
-            buckets I have actually worked across: UI, services, data, identity,
-            content systems, delivery, and the glue between them.
+          <div
+            className='mt-5 h-px w-8 origin-left bg-accent'
+            data-section-rule
+          />
+          <p className='mt-8 max-w-44 text-sm leading-7 text-muted-foreground'>
+            The tools I reach for most days.
           </p>
-        </div>
-        <div className='space-y-6'>
+        </aside>
+
+        <div className='grid gap-x-10 gap-y-10 md:grid-cols-2 xl:grid-cols-3'>
           {toolGroups.map((group, index) => (
             <section
-              className='grid gap-4 border-t border-border/80 pt-5 sm:grid-cols-[2rem_10rem_1fr]'
-              data-tool-group
+              className='grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 border-l border-border/80 pl-5'
+              data-tool-row
               key={group.label}
             >
-              <div className='grid size-8 place-items-center rounded-full border border-border text-accent'>
+              <div className='pt-1 text-foreground'>
                 {(() => {
                   const Icon = toolIcons[index] ?? Braces
-                  return <Icon className='size-4' aria-hidden='true' />
+                  return <Icon className='size-7' aria-hidden='true' />
                 })()}
               </div>
-              <h2 className='text-base font-semibold'>{group.label}</h2>
               <div>
-                <p className='text-sm leading-6 text-muted-foreground'>
+                <h2 className='text-sm font-semibold'>{group.label}</h2>
+                <p className='mt-3 text-sm leading-6 text-muted-foreground'>
                   {group.note}
                 </p>
-                <p className='mt-2 text-sm leading-7 text-foreground/82'>
-                  {group.tools.join(' / ')}
+                <p className='mt-3 text-sm leading-6 text-foreground/78'>
+                  {group.tools}
                 </p>
               </div>
             </section>

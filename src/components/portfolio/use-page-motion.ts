@@ -25,8 +25,8 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
         const media = gsap.matchMedia()
 
         media.add('(prefers-reduced-motion: no-preference)', () => {
-          const image = document.querySelector('[data-nature-image]')
-          const grade = document.querySelector('[data-nature-grade]')
+          const nav = document.querySelector('[data-site-nav]')
+          const heroImage = document.querySelector('[data-hero-image]')
           const line = document.querySelector('[data-drawn-line]')
           const breath = document.querySelector('[data-soft-breath]')
           const markers = gsap.utils.toArray<HTMLElement>(
@@ -34,8 +34,11 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
           )
           const progress = document.querySelector('[data-scroll-progress]')
           const sections = gsap.utils.toArray<HTMLElement>('[data-section]')
-          const sectionImages = gsap.utils.toArray<HTMLElement>(
-            '[data-section-image]'
+          const parallaxImages = gsap.utils.toArray<HTMLElement>(
+            '[data-parallax-image], [data-contact-art]'
+          )
+          const sectionRules = gsap.utils.toArray<HTMLElement>(
+            '[data-section-rule]'
           )
 
           function activateMarker(sectionName: string) {
@@ -60,6 +63,13 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
               ease: 'power4.out',
             },
           })
+
+          if (nav) {
+            heroTimeline.from(nav, {
+              opacity: 0,
+              y: -14,
+            })
+          }
 
           heroTimeline
             .from('[data-title-mask]', {
@@ -107,30 +117,33 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
             })
           }
 
-          if (image) {
-            gsap.to(image, {
+          if (heroImage) {
+            gsap.fromTo(
+              heroImage,
+              {
+                opacity: 0,
+                scale: 1.04,
+                xPercent: 2,
+              },
+              {
+                duration: 1.35,
+                ease: 'power3.out',
+                opacity: 1,
+                scale: 1,
+                xPercent: 0,
+              }
+            )
+
+            gsap.to(heroImage, {
               ease: 'none',
-              scale: 1.16,
-              xPercent: -4,
-              yPercent: 3,
+              scale: 1.08,
+              xPercent: -5,
+              yPercent: 5,
               scrollTrigger: {
-                end: 'bottom bottom',
+                end: 'bottom top',
                 scrub: 0.85,
                 start: 'top top',
-                trigger: rootRef.current,
-              },
-            })
-          }
-
-          if (grade) {
-            gsap.to(grade, {
-              ease: 'none',
-              opacity: 0.88,
-              scrollTrigger: {
-                end: 'bottom bottom',
-                scrub: 0.8,
-                start: 'top top',
-                trigger: rootRef.current,
+                trigger: '[data-section="start"]',
               },
             })
           }
@@ -190,7 +203,7 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
           })
 
           gsap.utils
-            .toArray<HTMLElement>('[data-work-item], [data-tool-group]')
+            .toArray<HTMLElement>('[data-work-row], [data-tool-row]')
             .forEach((element, index) => {
               gsap.from(element, {
                 duration: 0.92,
@@ -205,18 +218,39 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>) {
               })
             })
 
-          sectionImages.forEach((element) => {
+          sectionRules.forEach((element) => {
             gsap.from(element, {
-              duration: 1,
+              duration: 0.7,
               ease: 'power3.out',
-              opacity: 0,
-              rotate: -1.5,
-              scale: 0.96,
+              scaleX: 0,
+              scrollTrigger: {
+                start: 'top 82%',
+                trigger: element,
+              },
+            })
+          })
+
+          parallaxImages.forEach((element) => {
+            gsap.from(element, {
+              duration: 1.2,
+              ease: 'power3.out',
+              opacity: 0.16,
+              scale: 1.05,
               scrollTrigger: {
                 start: 'top 80%',
                 trigger: element,
               },
-              y: 28,
+            })
+
+            gsap.to(element, {
+              ease: 'none',
+              yPercent: -8,
+              scrollTrigger: {
+                end: 'bottom top',
+                scrub: 0.8,
+                start: 'top bottom',
+                trigger: element,
+              },
             })
           })
 

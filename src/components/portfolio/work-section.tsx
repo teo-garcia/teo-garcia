@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   BriefcaseBusiness,
   GitBranch,
   KeyRound,
@@ -6,65 +7,76 @@ import {
   Wrench,
 } from 'lucide-react'
 
-import { assets, work } from './content'
+import { work } from './content'
 
 const workIcons = [KeyRound, Wrench, Languages, GitBranch, BriefcaseBusiness]
 
 export function WorkSection() {
   return (
-    <section className='py-24 sm:py-32' data-reveal data-section='work'>
-      <div>
-        <div className='grid gap-10 lg:grid-cols-[1fr_18rem] lg:items-end'>
-          <div className='max-w-3xl'>
+    <section
+      className='px-5 py-20 sm:px-8 sm:py-24 lg:px-12'
+      data-reveal
+      data-section='work'
+      id='work'
+    >
+      <div className='mx-auto grid max-w-7xl gap-12 lg:grid-cols-[13rem_minmax(0,1fr)]'>
+        <aside className='lg:sticky lg:top-28 lg:self-start'>
+          <div className='max-w-48'>
             <p className='text-xs font-semibold uppercase tracking-[0.22em] text-accent'>
-              Work
+              Selected work
             </p>
-            <h2 className='mt-5 text-balance text-3xl font-semibold leading-tight sm:text-5xl'>
-              Work, told the way I remember it.
-            </h2>
-            <p className='mt-6 max-w-2xl text-base leading-7 text-muted-foreground'>
-              Not a trophy case. These are the kinds of problems I kept getting
-              pulled into, and what I tried to make less painful.
+            <div
+              className='mt-5 h-px w-8 origin-left bg-accent'
+              data-section-rule
+            />
+            <p className='mt-8 text-sm leading-7 text-muted-foreground'>
+              A few places I have helped move forward.
             </p>
+            <a
+              className='mt-8 inline-flex items-center gap-3 text-sm font-semibold text-accent transition hover:gap-4 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background'
+              href='mailto:juanmateogarcia96@gmail.com'
+            >
+              Talk through work
+              <ArrowRight className='size-4' aria-hidden='true' />
+            </a>
           </div>
-          <img
-            alt={assets.leafSystem.alt}
-            className='hidden aspect-[3/2] w-full rounded-sm border border-border/60 object-cover opacity-70 mix-blend-multiply grayscale dark:mix-blend-screen lg:block'
-            data-section-image
-            src={assets.leafSystem.src}
-          />
-        </div>
-        <div className='mt-12 space-y-10 border-l border-border/70 pl-5 sm:pl-8'>
+        </aside>
+
+        <div className='border-t border-border/80'>
           {work.map((item, index) => (
             <article
-              className='relative grid gap-4 pb-10 transition-colors hover:text-foreground lg:grid-cols-[12rem_1fr] lg:gap-10'
-              data-work-item
+              className='group grid gap-5 border-b border-border/80 py-8 transition-colors sm:grid-cols-[4rem_minmax(0,1fr)] lg:grid-cols-[4rem_minmax(12rem,0.48fr)_minmax(0,1fr)_8rem]'
+              data-work-row
               key={item.title}
             >
-              <div className='absolute -left-[2.05rem] top-0 grid size-8 place-items-center rounded-full border border-border bg-background text-accent sm:-left-[3.05rem]'>
+              <div className='grid size-11 place-items-center rounded-full border border-accent/45 text-accent transition group-hover:-translate-y-0.5 group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground'>
                 {(() => {
                   const Icon = workIcons[index] ?? BriefcaseBusiness
-                  return <Icon className='size-4' aria-hidden='true' />
+                  return <Icon className='size-5' aria-hidden='true' />
                 })()}
               </div>
-              <div className='text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground'>
-                <p>{item.company}</p>
-                <p className='mt-1'>{item.dates}</p>
+              <div>
+                <h2 className='text-balance text-xl font-semibold leading-tight tracking-[-0.02em] sm:text-2xl'>
+                  {item.title}
+                </h2>
+                <p className='mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground'>
+                  {item.company}
+                </p>
               </div>
               <div className='max-w-3xl'>
-                <h3 className='text-balance text-2xl font-semibold leading-tight sm:text-3xl'>
-                  {item.title}
-                </h3>
-                <p className='mt-4 max-w-3xl text-base leading-7 text-muted-foreground'>
+                <p className='text-sm leading-7 text-muted-foreground sm:text-base'>
                   {item.summary}
                 </p>
-                <ul className='mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm leading-6 text-foreground/82'>
-                  {item.proof.map((proof) => (
-                    <li className='border-l border-accent/50 pl-3' key={proof}>
-                      {proof}
-                    </li>
-                  ))}
-                </ul>
+                <p className='mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-foreground/70'>
+                  {item.proof}
+                </p>
+              </div>
+              <div className='flex items-start justify-between gap-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground lg:justify-end lg:text-right'>
+                <span>{item.dates}</span>
+                <ArrowRight
+                  className='size-4 shrink-0 transition group-hover:translate-x-1 group-hover:text-accent'
+                  aria-hidden='true'
+                />
               </div>
             </article>
           ))}

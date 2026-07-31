@@ -1,16 +1,18 @@
 export const hero = {
-  eyebrow: 'Mateo Garcia / Senior Software Engineer',
+  eyebrow: 'I build systems that move product forward',
+  name: 'Mateo Garcia',
+  role: 'Senior Software Engineer',
   title: 'I build the part that makes the rest easier to reason about.',
-  body: 'Most of my work starts with a rough sentence: access is confusing, the CMS is lying, reporting is slow, launches are getting risky. I like turning that sentence into software the team can actually live with.',
+  body: 'I work across the stack to turn ambiguous product problems into clear, durable software.',
   ledger: [
-    'Identity and access when the rules keep changing.',
-    'Legacy CMS behavior made less mysterious.',
-    'Campaign systems and launches that need calm decisions.',
+    'Understand the real problem',
+    'Design for clarity and scale',
+    'Build with care and iterate',
   ],
   links: [
     {
       href: 'mailto:juanmateogarcia96@gmail.com',
-      label: 'Email me',
+      label: "Let's talk",
     },
     {
       href: 'https://linkedin.com/in/teogarcia0',
@@ -19,14 +21,36 @@ export const hero = {
   ],
 } as const
 
-export const about = [
-  'I am not trying to make every project sound dramatic. A lot of good engineering is just staying with the messy part long enough to stop guessing.',
-  'I ask where the truth lives, what people are working around, and which decision will make the next release less painful. Then I build the boring, durable thing.',
+export const navItems = [
+  { href: '#work', label: 'Work' },
+  { href: '#approach', label: 'Approach' },
+  { href: '#stack', label: 'Stack' },
+  { href: '#about', label: 'About' },
 ] as const
+
+export const about = {
+  eyebrow: 'Approach',
+  note: 'Not a process. Just how I think and work.',
+  title:
+    'I ask a lot of questions up front. I like to understand the constraints, the users, and the business. Then I focus on what actually moves the needle.',
+  body: 'I iterate, get feedback early, and keep the codebase healthy along the way.',
+} as const
 
 export const chapters = ['Start', 'Shape', 'Work', 'Tools', 'Note'] as const
 
 export const assets = {
+  botanicalBand: {
+    alt: 'Pencil drawing of a leafy branch over a dark field.',
+    src: '/images/portfolio/editorial-botanical-band.png',
+  },
+  lighthouseContact: {
+    alt: 'Pencil drawing of a coastal lighthouse with mist and waves.',
+    src: '/images/portfolio/editorial-lighthouse-contact.png',
+  },
+  mountainHero: {
+    alt: 'Pencil drawing of a mountain peak with mist and field-journal marks.',
+    src: '/images/portfolio/editorial-mountain-hero.png',
+  },
   fern: {
     alt: 'Pencil drawing of ferns, branches, river stones, and soft mist.',
     src: '/images/portfolio/pencil-fern-river.png',
@@ -45,23 +69,23 @@ export const work = [
   {
     company: 'Gorilla Logic / AdCellerant',
     dates: 'Sep 2024 - Present',
-    proof: ['FusionAuth', 'Apollo Federation', 'campaign reporting'],
+    proof: 'FusionAuth / Apollo Federation / campaign reporting',
     summary:
-      'This is the kind of work where small access decisions become product decisions. I have been working through orders, line items, products, reports, identity, permissions, and the client-facing material around them.',
-    title: 'AdCellerant',
+      'Identity, permissions, orders, line items, products, reporting, and the client-facing details around them. Small access decisions became product decisions, so the work had to stay explicit.',
+    title: 'Global ad tech platform',
   },
   {
     company: 'Gorilla Logic / Evolve',
     dates: 'Apr 2022 - Sep 2024',
-    proof: ['WordPress', 'Salesforce', 'image-heavy product surfaces'],
+    proof: 'WordPress / Salesforce / image-heavy product surfaces',
     summary:
-      'The product looked simple from the outside: find a place, book it, trust the photos. Underneath, a legacy CMS and Salesforce integration had their own history. I spent a lot of time making the invisible parts behave.',
-    title: 'Evolve',
+      'Search, discovery, booking surfaces, and a legacy CMS with Salesforce behind it. A lot of the value was making the invisible sync behavior easier to trust.',
+    title: 'Vacation rental marketplace',
   },
   {
     company: 'Matter Supply / Netflix',
     dates: 'Nov 2021 - Apr 2022',
-    proof: ['multilingual launches', 'tight timelines', 'distributed handoff'],
+    proof: 'multilingual launches / tight timelines / distributed handoff',
     summary:
       'Two promotional sites, six languages, people in different countries, and no room for clever chaos. The job was to keep the build clean enough that the launch stayed boring.',
     title: 'Netflix promotional sites',
@@ -69,18 +93,18 @@ export const work = [
   {
     company: 'Huge / Stellantis',
     dates: 'Jun 2020 - Nov 2021',
-    proof: ['Preact', 'data-driven banners', 'production automation'],
+    proof: 'Preact / data-driven banners / production automation',
     summary:
       'There was too much repeated manual production. I helped turn that into a lightweight rendering and automation path so the team could generate campaign assets from data instead of dragging work around by hand.',
-    title: 'Stellantis',
+    title: 'Automated campaign systems',
   },
   {
     company: 'Globant / Pragma',
     dates: 'May 2019 - Jun 2020',
-    proof: ['React', 'Drupal', 'authenticated campaign apps'],
+    proof: 'React / Drupal / authenticated campaign apps',
     summary:
       'Early work had a lot of constraints: banking SPAs inside Drupal, campaign apps with authenticated games, and a team learning React while moving away from older habits.',
-    title: 'Banco Santander and campaign systems',
+    title: 'Digital banking and campaign apps',
   },
 ] as const
 
@@ -88,36 +112,44 @@ export const toolGroups = [
   {
     note: 'The default language for product work, with Python and SQL when the problem is closer to data or automation.',
     label: 'Languages',
-    tools: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+    tools: 'TypeScript, JavaScript, Python, SQL',
   },
   {
     note: 'Where I spend most of the visible time: product surfaces, campaign pages, booking flows, and internal tools.',
     label: 'Frontend',
-    tools: ['React', 'Next.js', 'Preact', 'React Native', 'Storybook'],
+    tools: 'React, Next.js, Preact, React Native, Storybook, Playwright',
   },
   {
     note: 'Enough backend to own real workflows instead of throwing problems over a wall.',
     label: 'Backend',
-    tools: ['Node.js', 'NestJS', 'Express', 'FastAPI', 'BullMQ'],
+    tools: 'Node.js, NestJS, Express, FastAPI, BullMQ, GraphQL',
   },
   {
     note: 'The systems behind the screen: relational data, cached state, search, and queues when the product needs them.',
     label: 'Data',
-    tools: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch'],
+    tools: 'PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch',
   },
   {
     note: 'The places where product language has to become enforceable rules.',
     label: 'APIs and identity',
-    tools: ['REST', 'GraphQL', 'Apollo Federation', 'OAuth 2.0', 'FusionAuth'],
+    tools: 'REST, GraphQL, Apollo Federation, OAuth 2.0, FusionAuth',
   },
   {
     note: 'Not a separate phase. Part of making the work understandable after it leaves the branch.',
     label: 'Delivery',
-    tools: ['AWS', 'GCloud', 'Docker', 'Cloudflare', 'Datadog', 'Playwright'],
+    tools: 'AWS, GCloud, Docker, Cloudflare, Datadog, GitHub Actions',
   },
   {
     note: 'Where older content systems and business platforms meet the actual product.',
     label: 'Platforms',
-    tools: ['WordPress', 'Strapi', 'Drupal', 'Salesforce', 'Stripe', 'Shopify'],
+    tools: 'WordPress, Strapi, Drupal, Salesforce, Stripe, Shopify',
   },
 ] as const
+
+export const contact = {
+  email: 'juanmateogarcia96@gmail.com',
+  location: 'Medellin, Colombia / Remote friendly',
+  phone: '+57 350 793 0191',
+  site: 'teo-garcia.vercel.app',
+  social: 'linkedin.com/in/teogarcia0',
+} as const

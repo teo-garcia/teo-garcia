@@ -15,7 +15,7 @@ test('HomePage renders portfolio content', () => {
   ).toBeInTheDocument()
   expect(
     screen.getByRole('heading', {
-      name: 'AdCellerant',
+      name: 'Global ad tech platform',
     })
   ).toBeInTheDocument()
   expect(screen.getByText(/Apollo Federation/i)).toBeInTheDocument()
