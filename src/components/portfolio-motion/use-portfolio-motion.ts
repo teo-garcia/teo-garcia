@@ -26,7 +26,8 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
 
         media.add('(prefers-reduced-motion: no-preference)', () => {
           const nav = document.querySelector('[data-site-nav]')
-          const progress = document.querySelector('[data-scroll-progress]')
+          const rail = document.querySelector('[data-rail]')
+          const railProgress = document.querySelector('[data-rail-progress]')
           const pulse = document.querySelector('[data-pulse]')
           // The rail lives outside rootRef, so it has to be queried from the
           // document — gsap.context() scopes selector strings to the ref.
@@ -48,27 +49,30 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
 
           activateChapter('intro')
 
-          // Entrance: nav, then headline, then supporting copy, then the readout.
           // Start states are set explicitly rather than with .from(), so a
           // ScrollTrigger refresh can never re-render a half-finished tween
           // and leave hero elements stranded at opacity 0.
-          const introCopy = '[data-hero-motion] > p, [data-hero-motion] a'
+          const heroBits = [
+            '[data-hero-eyebrow]',
+            '[data-hero-copy]',
+            '[data-hero-actions] > a',
+          ].join(', ')
           const readoutCells = '[data-readout] > div'
 
           if (nav) {
             gsap.set(nav, { opacity: 0, y: -16 })
           }
 
-          gsap.set('[data-title-mask]', {
-            filter: 'blur(14px)',
-            opacity: 0,
-            y: 28,
-          })
-          gsap.set(introCopy, { opacity: 0, y: 20 })
-          gsap.set(readoutCells, { opacity: 0, y: 18 })
+          gsap.set('[data-title-line]', { yPercent: 112 })
+          gsap.set(heroBits, { filter: 'blur(6px)', opacity: 0, y: 22 })
+          gsap.set(readoutCells, { opacity: 0, y: 20 })
+
+          if (rail) {
+            gsap.set(rail, { opacity: 0, x: 18 })
+          }
 
           const intro = gsap.timeline({
-            defaults: { duration: 1.1, ease: 'power4.out' },
+            defaults: { duration: 1.15, ease: 'power4.out' },
           })
 
           if (nav) {
@@ -76,13 +80,23 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
           }
 
           intro
+            // Headline lines rise out of their own clip masks, one after the
+            // other — the single most load-bearing moment on the page.
             .to(
-              '[data-title-mask]',
-              { filter: 'blur(0px)', opacity: 1, y: 0 },
-              '-=0.85'
+              '[data-title-line]',
+              { duration: 1.35, ease: 'expo.out', stagger: 0.11, yPercent: 0 },
+              '-=0.95'
             )
-            .to(introCopy, { opacity: 1, stagger: 0.07, y: 0 }, '-=0.7')
-            .to(readoutCells, { opacity: 1, stagger: 0.06, y: 0 }, '-=0.6')
+            .to(
+              heroBits,
+              { filter: 'blur(0px)', opacity: 1, stagger: 0.08, y: 0 },
+              '-=0.95'
+            )
+            .to(readoutCells, { opacity: 1, stagger: 0.07, y: 0 }, '-=0.75')
+
+          if (rail) {
+            intro.to(rail, { duration: 0.9, opacity: 1, x: 0 }, '-=0.6')
+          }
 
           if (pulse) {
             gsap.to(pulse, {
@@ -94,8 +108,8 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
             })
           }
 
-          if (progress) {
-            gsap.to(progress, {
+          if (railProgress) {
+            gsap.to(railProgress, {
               ease: 'none',
               scaleY: 1,
               scrollTrigger: {
@@ -107,8 +121,6 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
             })
           }
 
-          // Blooms drift slowly and independently so the background never
-          // reads as a static image.
           blooms.forEach((bloom, index) => {
             gsap.to(bloom, {
               duration: 9 + index * 2,
@@ -142,46 +154,56 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
               trigger: section,
             })
 
-            gsap.from(section.querySelectorAll('[data-line-reveal]'), {
-              duration: 0.95,
-              ease: 'power4.out',
-              opacity: 0,
-              scrollTrigger: { start: 'top 72%', trigger: section },
-              stagger: 0.12,
-              y: 30,
-            })
+            // Not every section has both, and GSAP warns on empty targets.
+            const reveals = section.querySelectorAll('[data-line-reveal]')
+            const rules = section.querySelectorAll('[data-section-rule]')
 
-            gsap.from(section.querySelectorAll('[data-section-rule]'), {
-              duration: 0.8,
-              ease: 'power3.out',
-              scaleX: 0,
-              scrollTrigger: { start: 'top 72%', trigger: section },
-            })
+            if (reveals.length > 0) {
+              gsap.from(reveals, {
+                duration: 1,
+                ease: 'power4.out',
+                filter: 'blur(8px)',
+                opacity: 0,
+                scrollTrigger: { start: 'top 72%', trigger: section },
+                stagger: 0.12,
+                y: 32,
+              })
+            }
+
+            if (rules.length > 0) {
+              gsap.from(rules, {
+                duration: 0.8,
+                ease: 'power3.out',
+                scaleX: 0,
+                scrollTrigger: { start: 'top 72%', trigger: section },
+              })
+            }
           })
 
           gsap.utils
-            .toArray<HTMLElement>('[data-qa-row], [data-work-row]')
+            .toArray<HTMLElement>(
+              '[data-qa-row], [data-work-row], [data-tool-row]'
+            )
             .forEach((element) => {
               gsap.from(element, {
                 duration: 0.9,
                 ease: 'power4.out',
                 opacity: 0,
-                scrollTrigger: { start: 'top 88%', trigger: element },
+                scrollTrigger: { start: 'top 90%', trigger: element },
                 y: 26,
               })
             })
 
           gsap.utils
-            .toArray<HTMLElement>('[data-tool-row]')
-            .forEach((element, index) => {
-              gsap.from(element, {
-                delay: (index % 3) * 0.06,
-                duration: 0.85,
+            .toArray<HTMLElement>('[data-repo-lane]')
+            .forEach((lane) => {
+              gsap.from(lane.querySelectorAll('li, header, p'), {
+                duration: 0.7,
                 ease: 'power3.out',
                 opacity: 0,
-                scale: 0.98,
-                scrollTrigger: { start: 'top 90%', trigger: element },
-                y: 22,
+                scrollTrigger: { start: 'top 88%', trigger: lane },
+                stagger: 0.035,
+                y: 16,
               })
             })
 

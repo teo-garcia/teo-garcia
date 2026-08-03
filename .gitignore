@@ -1,7 +1,9 @@
 node_modules/
+.pnpm-store/
 dist/
 .astro/
 coverage/
+.vitest-attachments/
 *.tsbuildinfo
 
 *.log
@@ -19,3 +21,4 @@ coverage/
 test-results/
 playwright-report/
 playwright/.cache/
+src/components/portfolio/__screenshots__/

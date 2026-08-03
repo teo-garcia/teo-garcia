@@ -6,10 +6,12 @@ import { HeroSection } from '../hero-section/hero-section'
 import {
   chapters,
   hero,
+  identity,
   navItems,
 } from '../portfolio-content/portfolio-content'
 import { usePortfolioMotion } from '../portfolio-motion/use-portfolio-motion'
 import { QuestionsSection } from '../questions-section/questions-section'
+import { ReposSection } from '../repos-section/repos-section'
 import { StackSection } from '../stack-section/stack-section'
 import { WorkSection } from '../work-section/work-section'
 
@@ -27,12 +29,12 @@ export default function Portfolio() {
 
       <SiteHeader />
       <ChapterRail />
-      <ScrollProgress />
 
       <article className='relative z-10 w-full' ref={rootRef}>
         <HeroSection />
         <QuestionsSection />
         <WorkSection />
+        <ReposSection />
         <StackSection />
         <ContactSection />
       </article>
@@ -43,24 +45,15 @@ export default function Portfolio() {
 function SiteHeader() {
   return (
     <header
-      className='fixed inset-x-0 top-0 z-40 border-b border-border/70 bg-background/70 px-5 py-3.5 backdrop-blur-xl sm:px-8 lg:px-12'
+      className='fixed inset-x-0 top-0 z-40 border-b border-border/70 bg-background/70 px-5 py-4 backdrop-blur-xl sm:px-8 lg:px-12'
       data-site-nav
     >
       <div className='mx-auto flex max-w-6xl items-center justify-between gap-6'>
         <a
-          className='flex items-center gap-3 rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
+          className='rounded-md text-sm font-semibold tracking-[-0.02em] transition-opacity duration-300 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
           href='#intro'
-          aria-label={`${hero.name}, back to top`}
         >
-          <span className='grid size-8 place-items-center rounded-md border border-border bg-foreground/[0.04] font-mono text-xs font-medium tracking-[-0.02em]'>
-            MG
-          </span>
-          <span className='hidden leading-tight sm:block'>
-            <span className='block text-sm font-medium tracking-[-0.01em]'>
-              {hero.name}
-            </span>
-            <span className='mono-label text-faint'>{hero.role}</span>
-          </span>
+          {identity.name}
         </a>
 
         <nav
@@ -79,7 +72,7 @@ function SiteHeader() {
         </nav>
 
         <a
-          className='group inline-flex min-h-9 items-center gap-2 rounded-full border border-border px-4 text-xs font-medium transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
+          className='group inline-flex min-h-9 items-center gap-2 squircle border border-border px-4 text-xs font-medium transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
           href={hero.links[0].href}
         >
           Say hi
@@ -93,43 +86,47 @@ function SiteHeader() {
   )
 }
 
+/*
+ * The rail: a track with a lit segment that travels with scroll progress,
+ * plus per-chapter ticks that grow and label themselves when active.
+ */
 function ChapterRail() {
   return (
     <nav
       aria-label='Section navigation'
-      className='fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col items-end gap-5 lg:flex'
+      className='fixed right-5 top-1/2 z-30 hidden -translate-y-1/2 lg:block xl:right-8'
+      data-rail
     >
-      {chapters.map((chapter) => (
-        <a
-          className='mono-label group flex items-center gap-3 text-faint transition-colors duration-500 hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
-          data-chapter={chapter.id}
-          data-chapter-marker
-          href={chapter.href}
-          key={chapter.id}
+      <div className='relative flex flex-col items-end gap-6'>
+        <span
+          className='absolute right-[3px] top-0 h-full w-px bg-border'
+          aria-hidden='true'
         >
-          <span className='opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-data-[active]:opacity-100'>
-            {chapter.label}
-          </span>
           <span
-            className='block h-px w-4 bg-current transition-all duration-500 group-hover:w-7 group-data-[active]:w-7'
-            aria-hidden='true'
+            className='block h-full w-full origin-top scale-y-0 bg-foreground/70'
+            data-rail-progress
           />
-        </a>
-      ))}
-    </nav>
-  )
-}
+        </span>
 
-function ScrollProgress() {
-  return (
-    <div
-      className='pointer-events-none fixed inset-y-0 left-0 z-30 hidden w-px bg-border sm:block'
-      aria-hidden='true'
-    >
-      <div
-        className='h-full w-full origin-top scale-y-0 bg-foreground/60'
-        data-scroll-progress
-      />
-    </div>
+        {chapters.map((chapter, index) => (
+          <a
+            className='group relative flex items-center gap-3 rounded-sm py-0.5 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
+            data-chapter={chapter.id}
+            data-chapter-marker
+            href={chapter.href}
+            key={chapter.id}
+          >
+            {/* Labels stay legible at rest and only brighten on hover/active. */}
+            <span className='mono-label text-faint/60 transition-all duration-500 group-hover:text-foreground group-data-[active]:text-foreground'>
+              {String(index + 1).padStart(2, '0')} {chapter.label}
+            </span>
+            <span
+              className='block size-[7px] shrink-0 rounded-full border border-border-strong bg-background transition-all duration-500 group-hover:border-foreground group-data-[active]:scale-125 group-data-[active]:border-foreground group-data-[active]:bg-foreground'
+              aria-hidden='true'
+            />
+          </a>
+        ))}
+      </div>
+    </nav>
   )
 }

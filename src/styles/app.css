@@ -19,8 +19,9 @@
   --color-border-strong: var(--border-strong);
   --color-ring: var(--ring);
 
-  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+  --font-sans: 'Wix Madefor Text', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Wix Madefor Display', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 }
 
 :root {
@@ -107,7 +108,6 @@
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
-    font-feature-settings: 'ss01', 'cv01';
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
@@ -162,6 +162,52 @@
         var(--glow-faint) 0%,
         transparent 66%
       );
+  }
+
+  /* Headlines switch to the display cut, which is drawn for large sizes. */
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+  }
+
+  /*
+   * The horizon: a wide, low arc of light rising behind the centered hero,
+   * plus a hairline that reads as the edge it rises from.
+   */
+  .layer-horizon {
+    background:
+      radial-gradient(
+        ellipse 58% 100% at 50% 108%,
+        var(--glow-core) 0%,
+        var(--glow-soft) 32%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 90% 60% at 50% 112%,
+        var(--glow-faint) 0%,
+        transparent 70%
+      );
+  }
+
+  /* Rotating conic sheen — the subtle "something is alive here" layer. */
+  .layer-beam {
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      transparent 0deg,
+      var(--glow-faint) 40deg,
+      transparent 90deg,
+      transparent 270deg,
+      var(--glow-faint) 320deg,
+      transparent 360deg
+    );
+    mask-image: radial-gradient(circle at 50% 50%, #000 10%, transparent 68%);
+  }
+
+  /* Per-line clip container for the staggered headline reveal. */
+  .line-clip {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
   }
 
   /* Slow drifting bloom, animated by GSAP. */
@@ -229,13 +275,32 @@
   /* Headline treatment: text fades from full white into gray. */
   .text-sheen {
     background: linear-gradient(
-      168deg,
-      var(--foreground) 8%,
-      var(--muted-foreground) 96%
+      172deg,
+      var(--foreground) 26%,
+      var(--muted-foreground) 128%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /*
+   * Squircle: a true superellipse where `corner-shape` is supported, and a
+   * generously rounded rect everywhere else. Never a pill.
+   */
+  .squircle {
+    border-radius: 0.75rem;
+    corner-shape: superellipse(2.2);
+  }
+
+  .squircle-lg {
+    border-radius: 1.15rem;
+    corner-shape: superellipse(2.2);
+  }
+
+  .squircle-sm {
+    border-radius: 0.55rem;
+    corner-shape: superellipse(2.2);
   }
 
   .mono-label {

@@ -59,7 +59,7 @@ export function WorkSection() {
                   <ul className='mt-5 flex flex-wrap gap-2'>
                     {item.stack.map((tool) => (
                       <li
-                        className='rounded-full border border-border px-3 py-1 font-mono text-[0.6875rem] tracking-[0.02em] text-muted-foreground transition-colors duration-500 group-hover:border-border-strong group-hover:text-foreground'
+                        className='squircle border border-border px-3 py-1 font-mono text-[0.6875rem] tracking-[0.02em] text-muted-foreground transition-colors duration-500 group-hover:border-border-strong group-hover:text-foreground'
                         key={tool}
                       >
                         {tool}
