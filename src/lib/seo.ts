@@ -4,7 +4,7 @@ const publicUrl = env.publicUrl.replace(/\/$/, '')
 
 export const siteMetadata = {
   description:
-    'Mateo Garcia is a senior software engineer who makes complicated software feel obvious — auth, permissions, integrations, and the legacy services nobody wants to open.',
+    'Mateo Garcia is a senior software engineer who works across the stack, turning unclear requirements into software people can actually use.',
   name: 'Mateo Garcia',
   shortName: 'Mateo Garcia',
   url: publicUrl,

@@ -43,7 +43,7 @@ export function ContactSection() {
               {contact.body}
             </p>
             <a
-              className='group mt-10 inline-flex min-h-12 items-center justify-center gap-3 squircle bg-accent px-7 text-sm font-medium text-accent-foreground transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
+              className='cta group mt-10 inline-flex min-h-12 items-center justify-center gap-3 squircle bg-accent px-7 text-sm font-medium text-accent-foreground transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
               href={`mailto:${identity.email}`}
             >
               {contact.cta}

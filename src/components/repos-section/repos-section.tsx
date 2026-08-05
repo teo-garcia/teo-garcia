@@ -32,7 +32,7 @@ export function ReposSection() {
               {repos.body}
             </p>
             <a
-              className='group mt-7 inline-flex min-h-11 items-center gap-2.5 squircle border border-border px-5 text-sm font-medium transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
+              className='cta group squircle mt-7 inline-flex min-h-11 items-center gap-2.5 border border-border px-5 text-sm font-medium transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
               href={repos.cta.href}
               rel='noreferrer'
               target='_blank'

@@ -74,8 +74,14 @@ const FRAGMENT_SHADER = `
     float lum = (bands * veil * 0.5 + spot * 0.26 + f * 0.05) * corridor;
     lum *= u_intensity;
 
-    vec3 dark = vec3(0.02) + vec3(1.0) * lum * 1.02;
-    vec3 light = vec3(0.98) - vec3(1.0) * lum * 0.48;
+    // Light mode gets a gamma lift so the field is clearly visible, but the
+    // amplitude is hard-capped: the darkest light-mode pixel stays a mid grey
+    // so translucent chrome on top never loses its contrast.
+    float darkLum = lum * 1.02;
+    float lightLum = pow(clamp(lum * 1.35, 0.0, 1.0), 0.9) * 0.5;
+
+    vec3 dark = vec3(0.02) + vec3(1.0) * darkLum;
+    vec3 light = vec3(0.985) - vec3(1.0) * lightLum;
     vec3 col = mix(light, dark, u_dark);
 
     // Ordered-ish dither: without it, near-black gradients band badly.

@@ -41,6 +41,11 @@
   - The copy should feel like Mateo speaking, not AI selling.
   - Asset management should be cleaner and use multiple generated images.
   - The preferred visual direction is nature backgrounds drawn in pencil.
+  - The professional narrative overemphasized auth and permissions instead of
+    general software engineering.
+  - Work descriptions were inaccurate and needed production-specific facts.
+  - End-to-end ownership should not be reduced to or phrased as writing
+    Playwright tests.
 - Required changes:
   1. Use simpler, calmer visual language.
   2. Prefer beautiful white and dark variations with one strong accent.
@@ -75,6 +80,14 @@
       folder.
   27. Make work and tools vertical, narrative, and less structured like a sales
       page.
+  28. Describe broad software engineering ownership instead of centering auth
+      and permissions.
+  29. Keep work history grounded in the named products, responsibilities, and
+      tools supplied by Mateo.
+  30. Describe ownership from business requirements through the complete user
+      journey without naming Playwright or end-to-end tests in narrative copy.
+  31. Keep Playwright in the toolset as evidence, not as the professional
+      identity or headline.
 
 ## Product Direction
 
@@ -405,3 +418,20 @@ Iteration 12 is acceptable when:
 - Priority: High
 - Decision: Rework
 - Notes: This swipe is `pencil-nature-narrative`.
+
+### Feedback Entry
+
+- Iteration: 12 - Professional narrative correction
+- Date: 2026-08-04
+- What I liked: The current structure can carry the work history and Q&A.
+- What I disliked: The hero talked too much about permissions and auth, the job
+  descriptions were factually wrong, and full ownership was framed too narrowly
+  as writing Playwright tests.
+- Required changes: Reframe the hero around general software engineering;
+  describe AdCellerant, Evolve, Netflix, Stellantis, Santander, and Pragma from
+  the supplied facts; keep Pragma understated; and express end-to-end ownership
+  without naming Playwright or end-to-end tests in the prose.
+- Priority: High
+- Decision: Rework
+- Notes: Playwright remains in the factual tool list. Express sits beside
+  NestJS, and Firebase is added to the platform toolset.

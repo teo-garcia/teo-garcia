@@ -48,11 +48,11 @@ const codingYearsLabel = spellNumber(codingYears)
 export const hero = {
   eyebrow: 'Senior Software Engineer · Medellín',
   title: 'I make complicated software feel obvious.',
-  body: `${codingYearsLabel} years shipping the unglamorous parts: auth, permissions, integrations, the legacy service nobody wants to open. I take them from the first whiteboard sketch to the end-to-end tests that keep them honest.`,
+  body: `${codingYearsLabel} years building software from unclear requirements to systems people can actually use. I work across the stack, care about how the whole thing fits together, and stay with the problem until it works.`,
   readout: [
     { label: 'Coding', value: `${codingYears} yrs` },
     { label: 'Stops', value: '06' },
-    { label: 'Based', value: 'Medellín, CO' },
+    { label: 'Based', value: 'MDE, COL' },
     { label: 'Timezone', value: 'GMT-5' },
   ],
   links: [
@@ -66,6 +66,7 @@ export const navItems = [
   { href: '#work', label: 'Work' },
   { href: '#repos', label: 'Repos' },
   { href: '#stack', label: 'Stack' },
+  { href: '#community', label: 'Community' },
   { href: '#contact', label: 'Contact' },
 ] as const
 
@@ -75,7 +76,8 @@ export const chapters = [
   { href: '#work', id: 'work', label: 'Work' },
   { href: '#repos', id: 'repos', label: 'Repos' },
   { href: '#stack', id: 'stack', label: 'Stack' },
-  { href: '#contact', id: 'talk', label: 'Talk' },
+  { href: '#community', id: 'community', label: 'Community' },
+  { href: '#contact', id: 'contact', label: 'Contact' },
 ] as const
 
 export const questions = {
@@ -86,7 +88,7 @@ export const questions = {
     {
       question: 'So what do you actually do?',
       answer:
-        'I take the part of the product everyone describes with their hands — “the permissions thing,” “the sync thing” — and turn it into something you can point at in code.',
+        'I build the load-bearing parts — auth, permissions, integrations, the service everyone quietly routes around. Unglamorous work that a surprising amount of the product depends on.',
     },
     {
       question: 'Frontend or backend?',
@@ -94,29 +96,29 @@ export const questions = {
         'Frontend by reputation, both by necessity. I got tired of throwing problems over a wall and waiting two sprints, so I learned to own the whole path.',
     },
     {
-      question: 'What are you actually good at?',
+      question: "What's the part that isn't on the résumé?",
       answer:
-        "Walking into a codebase with six years of decisions in it and working out which ones still make sense. That's most of the job, and nobody ever puts it in the job post.",
+        'Codebase archaeology. Walking into six years of accumulated decisions and working out which ones still make sense, which ones are load-bearing, and which ones everyone is scared of for no reason anymore.',
     },
     {
-      question: "What's the catch?",
+      question: 'How far do you take it?',
       answer:
-        "I ask a lot of questions before I write anything. Some people read that as slow. It's reliably cheaper than building the wrong thing twice.",
+        'All the way through. I shape the business requirement, work out the system, build what it needs across the stack, ship it, and make sure the complete user journey holds together. Handing off a branch is not finishing.',
     },
     {
-      question: 'How far do you actually take a thing?',
+      question: 'Does working across cultures actually change anything?',
       answer:
-        'All of it. Planning and shaping it on a whiteboard, arguing about the schema, building it, shipping it, then writing the end-to-end tests that prove it still works three months later. Handing off a branch is not finishing.',
+        'More than people admit. I have worked with Colombian, American and European teams, mostly distributed. The code is the easy part. What changes is how people say no, whether a risk gets raised in the meeting or in a DM afterwards, and whether silence means agreement or trouble. I read that before I push.',
     },
     {
       question: 'Are you easy to work with?',
       answer:
-        'Ask the designers and PMs. I am the engineer who actually shows up to their meetings and asks the annoying question early. Most of the bad decisions I have helped avoid came out of a conversation, not a code review.',
+        'Ask the designers and PMs. I am the engineer who shows up to their meetings and asks the annoying question while it is still cheap to answer. Most of the bad decisions I helped avoid came out of a conversation, not a code review.',
     },
     {
-      question: 'Why should I care?',
+      question: "What's the catch?",
       answer:
-        "If you're still reading, something in your product is probably harder to change than it should be. I'm good at fixing that specific problem.",
+        'I ask a lot of questions before I write anything. Some people read that as slow. It is reliably cheaper than building the wrong thing twice.',
     },
   ],
 } as const
@@ -130,63 +132,62 @@ export const work = {
       years: "'24 — Now",
       company: 'AdCellerant',
       via: 'via Gorilla Logic',
-      title: 'Global ad tech platform',
+      title: 'Marketing platform',
       summary:
-        'Identity, permissions, orders, line items, reporting. On a platform like this, “who can see what” is not a settings page — it is the product. So I stopped treating access as plumbing and started treating it as a feature with opinions.',
-      stack: [
-        'TypeScript',
-        'Java',
-        'GraphQL',
-        'Spring Boot',
-        'Apollo Federation',
-        'FusionAuth',
-        'React',
-      ],
+        'Maintaining and evolving a complex marketing platform across TypeScript, Python, and Java services. The work moves between React product surfaces and backend systems built with NestJS and Spring Boot.',
+      stack: ['TypeScript', 'Python', 'Java', 'React', 'NestJS', 'Spring Boot'],
     },
     {
       years: "'22 — '24",
       company: 'Evolve',
       via: 'via Gorilla Logic',
-      title: 'Vacation rental marketplace',
+      title: 'Customer booking application',
       summary:
-        'Search, discovery, booking, and a fifteen-year-old CMS wired to Salesforce behind a curtain. Most of the value there was not new features — it was making the invisible sync behavior something a human could trust.',
-      stack: ['TypeScript', 'PHP', 'React', 'WordPress', 'Salesforce', 'REST'],
+        'Led development of the user-facing booking application, connecting a React and TypeScript experience with Express and NestJS services, WordPress, and Salesforce.',
+      stack: [
+        'TypeScript',
+        'React',
+        'Express',
+        'NestJS',
+        'WordPress',
+        'Salesforce',
+      ],
     },
     {
       years: "'21 — '22",
       company: 'Netflix',
       via: 'via Matter Supply',
-      title: 'Promotional launch sites',
+      title: 'Stories about a changing planet',
       summary:
-        'Two launch sites, six languages, four timezones, and zero appetite for surprises. The entire job was keeping the build boring enough that launch day stayed uneventful. It did.',
-      stack: ['TypeScript', 'React', 'Next.js', 'Strapi', 'i18n'],
+        "Created marketing websites for the Breaking Boundaries documentary and Don't Look Up — two Netflix productions about how we respond to a planet in trouble.",
+      stack: ['TypeScript', 'React', 'Firebase', 'Strapi'],
     },
     {
       years: "'20 — '21",
       company: 'Stellantis',
       via: 'via Huge',
-      title: 'Campaign automation',
+      title: 'Vehicle advertising at two scales',
       summary:
-        'The team was hand-assembling hundreds of ad banners, every campaign. I helped replace the dragging-things-around with a rendering pipeline that takes data in and puts assets out. Nobody misses the old way.',
-      stack: ['TypeScript', 'Preact', 'Build tooling', 'Automation'],
+        'Built one-off vehicle banners with ambitious GSAP animation and deluxe assets, alongside a larger operation that turned complex spreadsheet permutations into many variations of an established rendering system.',
+      stack: ['JavaScript', 'Preact', 'Vue', 'GSAP', 'Automation'],
     },
     {
       years: "'19 — '20",
       company: 'Grupo Santander',
       via: 'via Globant',
-      title: 'Digital banking',
+      title: 'Banking UI inside Drupal',
       summary:
-        'Banking SPAs living inside a Drupal shell, where every form was somebody’s actual money. Tight compliance, older stack, no room for improvisation — the kind of constraints that make you write things down before you write them in code.',
-      stack: ['JavaScript', 'PHP', 'React', 'Drupal'],
+        'Crafted banking interfaces inside a complex Drupal CMS, building the experience from React and Twig components while working within the platform around them.',
+      stack: ['JavaScript', 'React', 'Twig', 'Drupal'],
     },
     {
       years: "'19 — '20",
       company: 'Familia',
       via: 'via Pragma',
-      title: 'Retail & seasonal campaigns',
+      title: 'Retail promotions',
       summary:
-        'Retail apps and seasonal promotion campaigns that had to be live on a date somebody had already put on television. Short cycles, real traffic spikes, and a team learning React in real time.',
-      stack: ['JavaScript', 'React', 'Campaign apps'],
+        "Built promotional SPAs for high-demand retail campaigns and helped introduce React into the team's frontend work.",
+      stack: ['JavaScript', 'React', 'Promotional SPAs'],
     },
   ],
 } as const
@@ -282,8 +283,8 @@ export const stack = {
       note: 'Enough to own a workflow end to end instead of handing it off.',
       tools: [
         'NestJS',
-        'Spring Boot',
         'Express',
+        'Spring Boot',
         'FastAPI',
         'Django',
         'AdonisJS',
@@ -334,7 +335,42 @@ export const stack = {
         'Stripe',
         'Shopify',
         'Strapi',
+        'Firebase',
       ],
+    },
+  ],
+} as const
+
+export const community = {
+  eyebrow: 'Off the clock',
+  title: 'The part that was never a job',
+  note: 'Open source, meetups, and a decent number of Saturdays.',
+  body: 'I got into this because somebody took the time to explain it to me for free. Everything below is me trying to be that person for somebody else — and it is also why I keep my templates public. Code you cannot read is code nobody learns from.',
+  cta: { href: identity.github, label: 'Everything I build in the open' },
+  items: [
+    {
+      period: '2019 — 2021',
+      role: 'Co-organizer',
+      title: 'React Medellín',
+      summary:
+        'Ran the meetup with a small crew: finding venues, lining up speakers, and giving plenty of the talks myself — in a room, and later over a webcam. Free, every single time. We also brought in local companies so it had a budget and somewhere to come back to, instead of quietly dying the first month nobody sponsored it.',
+      tags: ['Meetup organizing', 'Public speaking', 'Frontend teaching'],
+    },
+    {
+      period: '2024 - 2025',
+      role: 'Chapter lead',
+      title: 'Women Who Code',
+      summary:
+        'Led the chapter at my company two years in a row, teaching frontend and backend to girls in at-risk situations. A lot of them had never opened a terminal before the first session. Some of them are writing production code now, which is the only metric from any of this that I actually care about.',
+      tags: ['Mentoring', 'Frontend', 'Backend'],
+    },
+    {
+      period: '2024',
+      role: 'Volunteer',
+      title: 'Saturdays with nothing to do with code',
+      summary:
+        'Sitting with people in retirement homes who mostly just want somebody to listen for an hour. Planting trees. Walking young people through what a career in this industry actually looks like day to day — the useful version, not the LinkedIn one.',
+      tags: ['Elder care', 'Reforestation', 'Career guidance'],
     },
   ],
 } as const

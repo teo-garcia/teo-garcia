@@ -182,7 +182,7 @@ export function usePortfolioMotion(rootRef: RefObject<HTMLElement | null>) {
 
           gsap.utils
             .toArray<HTMLElement>(
-              '[data-qa-row], [data-work-row], [data-tool-row]'
+              '[data-qa-row], [data-work-row], [data-tool-row], [data-community-card]'
             )
             .forEach((element) => {
               gsap.from(element, {

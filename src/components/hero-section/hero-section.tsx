@@ -4,12 +4,21 @@ import { HeroCanvas } from '../hero-canvas/hero-canvas'
 import { hero } from '../portfolio-content/portfolio-content'
 
 // Split for the per-line clip reveal. Each line animates out of its own mask.
+// Hairlines drawn per cell so they stay correct in both the 2-col mobile
+// grid and the 4-col desktop one, without a gap-and-background hack.
+const DIVIDERS = [
+  'border-b border-r border-border lg:border-b-0',
+  'border-b border-border lg:border-b-0 lg:border-r',
+  'border-r border-border',
+  '',
+]
+
 const titleLines = ['I make complicated', 'software feel obvious.']
 
 export function HeroSection() {
   return (
     <header
-      className='relative isolate flex min-h-svh flex-col justify-center overflow-hidden px-5 pb-16 pt-32 sm:px-8 sm:pb-20 lg:px-12'
+      className='relative isolate flex min-h-svh flex-col justify-center overflow-hidden px-5 pb-10 pt-24 sm:px-8 sm:pb-20 sm:pt-32 lg:px-12'
       data-section='intro'
       id='intro'
     >
@@ -33,7 +42,7 @@ export function HeroSection() {
         data-hero-motion
       >
         <p
-          className='mono-label inline-flex items-center gap-2.5 squircle border border-border px-4 py-2 text-muted-foreground'
+          className='glass-chip mono-label squircle inline-flex items-center gap-2.5 px-4 py-2 text-foreground/80'
           data-hero-eyebrow
         >
           <span
@@ -45,7 +54,7 @@ export function HeroSection() {
         </p>
 
         <h1
-          className='display text-sheen mt-9 text-[clamp(2.4rem,7.2vw,5.25rem)] font-bold leading-[0.92]'
+          className='display text-sheen mt-7 text-[clamp(2.15rem,7.2vw,5.25rem)] font-bold leading-[0.92] sm:mt-9'
           data-title
         >
           {titleLines.map((line) => (
@@ -58,18 +67,18 @@ export function HeroSection() {
         </h1>
 
         <p
-          className='mt-9 max-w-2xl text-balance text-base leading-[1.75] text-muted-foreground sm:text-lg'
+          className='mt-6 max-w-2xl text-balance text-sm leading-[1.7] text-muted-foreground sm:mt-8 sm:text-lg sm:leading-[1.75]'
           data-hero-copy
         >
           {hero.body}
         </p>
 
         <div
-          className='mt-11 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4'
+          className='mt-8 flex w-full flex-col items-center justify-center gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4'
           data-hero-actions
         >
           <a
-            className='group inline-flex min-h-12 w-full items-center justify-center gap-3 squircle bg-accent px-7 text-sm font-medium text-accent-foreground transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background sm:w-auto'
+            className='cta group inline-flex min-h-12 w-full items-center justify-center gap-3 squircle bg-accent px-7 text-sm font-medium text-accent-foreground transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background sm:w-auto'
             href={hero.links[0].href}
           >
             {hero.links[0].label}
@@ -79,7 +88,7 @@ export function HeroSection() {
             />
           </a>
           <a
-            className='group inline-flex min-h-12 w-full items-center justify-center gap-2 squircle border border-border px-7 text-sm font-medium text-foreground transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background sm:w-auto'
+            className='cta group inline-flex min-h-12 w-full items-center justify-center gap-2 squircle border border-border px-7 text-sm font-medium text-foreground transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background sm:w-auto'
             href={hero.links[1].href}
           >
             {hero.links[1].label}
@@ -92,16 +101,16 @@ export function HeroSection() {
       </div>
 
       <dl
-        className='relative z-10 mx-auto mt-16 grid w-full max-w-5xl grid-cols-2 gap-px overflow-hidden squircle-lg border border-border bg-border lg:grid-cols-4'
+        className='glass squircle-lg relative z-10 mx-auto mt-10 grid w-full max-w-4xl grid-cols-2 overflow-hidden sm:mt-16 lg:grid-cols-4'
         data-readout
       >
-        {hero.readout.map((entry) => (
+        {hero.readout.map((entry, index) => (
           <div
-            className='bg-background px-5 py-5 text-center sm:py-6'
+            className={`flex flex-col items-center justify-center gap-2.5 px-4 py-6 text-center sm:gap-3 sm:px-8 sm:py-9 ${DIVIDERS[index] ?? ''}`}
             key={entry.label}
           >
             <dt className='mono-label text-faint'>{entry.label}</dt>
-            <dd className='mt-2 font-mono text-lg font-medium tracking-[-0.02em] text-foreground'>
+            <dd className='display text-2xl font-semibold tracking-[-0.03em] text-foreground sm:text-3xl'>
               {entry.value}
             </dd>
           </div>

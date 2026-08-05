@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useRef } from 'react'
 
+import { CommunitySection } from '../community-section/community-section'
 import { ContactSection } from '../contact-section/contact-section'
 import { HeroSection } from '../hero-section/hero-section'
 import {
@@ -36,6 +37,7 @@ export default function Portfolio() {
         <WorkSection />
         <ReposSection />
         <StackSection />
+        <CommunitySection />
         <ContactSection />
       </article>
     </div>
@@ -72,7 +74,7 @@ function SiteHeader() {
         </nav>
 
         <a
-          className='group inline-flex min-h-9 items-center gap-2 squircle border border-border px-4 text-xs font-medium transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
+          className='cta group squircle inline-flex min-h-9 items-center gap-2 border border-border px-4 text-xs font-medium transition duration-300 hover:border-border-strong hover:bg-foreground/[0.05] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-4 focus:ring-offset-background'
           href={hero.links[0].href}
         >
           Say hi
