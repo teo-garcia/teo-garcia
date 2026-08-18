@@ -200,9 +200,9 @@ export const repos = {
         'next-template-fullstack',
         'astro-template-fullstack',
         'react-router-template-fullstack',
-        'tanstack-start-template-fullstack',
+        'tanstack-template-fullstack',
         'angular-template-fullstack',
-        'react-native-template-expo',
+        'expo-template-mobile',
       ],
     },
     {
