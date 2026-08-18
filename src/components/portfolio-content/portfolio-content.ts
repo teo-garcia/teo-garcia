@@ -144,14 +144,7 @@ export const work = {
       title: 'Customer booking application',
       summary:
         'Led development of the user-facing booking application, connecting a React and TypeScript experience with Express and NestJS services, WordPress, and Salesforce.',
-      stack: [
-        'TypeScript',
-        'React',
-        'Express',
-        'NestJS',
-        'WordPress',
-        'Salesforce',
-      ],
+      stack: ['TypeScript', 'React', 'Express', 'WordPress', 'Salesforce'],
     },
     {
       years: "'21 — '22",
@@ -204,11 +197,11 @@ export const repos = {
       label: 'Frontend & apps',
       note: 'One shape, six ways to render it.',
       items: [
-        'react-template-next',
-        'react-template-astro',
-        'react-template-rr',
-        'react-template-tanstack-start',
-        'angular-template-ssr',
+        'next-template-fullstack',
+        'astro-template-fullstack',
+        'react-router-template-fullstack',
+        'tanstack-start-template-fullstack',
+        'angular-template-fullstack',
         'react-native-template-expo',
       ],
     },

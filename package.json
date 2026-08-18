@@ -71,7 +71,7 @@
   "engines": {
     "node": ">=24"
   },
-  "name": "react-template-astro",
+  "name": "teo-garcia",
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=true astro build",

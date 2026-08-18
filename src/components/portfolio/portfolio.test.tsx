@@ -48,10 +48,10 @@ test('Portfolio links out to the template ecosystem', () => {
   render(<Portfolio />)
 
   expect(
-    screen.getByRole('link', { name: /react-template-astro/i })
+    screen.getByRole('link', { name: /astro-template-fullstack/i })
   ).toHaveAttribute(
     'href',
-    'https://github.com/teo-garcia/react-template-astro'
+    'https://github.com/teo-garcia/astro-template-fullstack'
   )
   expect(
     screen.getByRole('link', { name: /browse the repos/i })
