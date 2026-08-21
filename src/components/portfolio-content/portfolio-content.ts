@@ -189,7 +189,7 @@ export const repos = {
   eyebrow: 'The proof',
   title: 'Want to know what I can actually build?',
   note: 'Read the code. It argues better than I do.',
-  body: 'I maintain a template ecosystem — 23 repos across frontend, backend, platform and shared config, all governed by a single document that decides what goes in and what stays out. It is the most honest résumé I have.',
+  body: 'I maintain a template ecosystem — 25 repos across frontend, backend, platform and shared config, all governed by a single document that decides what goes in and what stays out. It is the most honest résumé I have.',
   cta: { href: identity.github, label: 'Browse the repos' },
   base: 'https://github.com/teo-garcia',
   lanes: [
@@ -211,6 +211,8 @@ export const repos = {
       items: [
         'nest-template-monolith',
         'nest-template-microservice',
+        'spring-template-monolith',
+        'spring-template-microservice',
         'adonis-template-monolith',
         'fastapi-template-monolith',
         'fastapi-template-microservice',
